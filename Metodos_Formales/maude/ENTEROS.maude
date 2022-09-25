@@ -1,0 +1,46 @@
+load NATURALES.maude
+
+fmod ENTEROS is
+
+    protecting NATURALES .
+    sort Int .
+    subsort Nat < Int .
+
+    op -_ : Int -> Int .
+    
+    var a b : Int .
+    var x y : Nat .
+
+    eq - 0 = 0 .
+    eq - - a = a .
+    eq s(- s(a)) = - a .
+
+    op _+_ : Int Int -> Int .
+    eq a + 0 = a .
+    eq 0 + a = a .
+    eq a + s(b) = s(a) + b .
+    eq s(a) + b = a + s(b) .
+    eq - a + (- s(b)) = - s(a) + (- b) . 
+
+    op _-_ : Int Int -> Int .
+    eq a - 0 = a .
+    eq 0 - a = - a .
+    eq a - (- b) = a + b .
+    eq - a - b = -(a + b) . 
+
+    op _*_ : Int Int -> Int .
+    eq a * 0 = 0 .
+    eq 0 * a = 0 .
+    eq - a * s(b) = - ((a * b) + a) .
+    eq a * (- s(b)) = - ((a * b) + a) .
+    eq - a * (- s(b)) = ((a * b) + a) .
+
+    op _^_ : Int Nat -> Int .
+    eq a ^ 0 = s(0) .
+    eq 0 ^ 0 = 0 .
+    eq 0 ^ x = 0 .
+    eq a ^ s(x) = ((a ^ x) * a) .
+
+    
+
+endfm

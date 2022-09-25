@@ -1,0 +1,47 @@
+load BOOLEANOS_COMP.maude
+load NATURALES_OP.maude
+
+fmod BOOLEANOS_OP is 
+	protecting BOOLEANOS_COMP .
+	protecting NATURALES_OP .
+
+
+	vars x y z : Nat .
+
+	op esPar _ : Nat -> BOOL . 
+	eq esPar 0 = false .
+	eq esPar s(0) = false .
+	eq esPar s(s(0)) = true .
+	eq esPar s(s(x)) = esPar(x) .
+
+	op esimpar _ : Nat -> BOOL .
+	eq esimpar 0 = false .
+	eq esimpar s(0) = true .
+	eq esimpar s(s(x)) = esimpar(x) .
+
+	op esDivisible : Nat Nat -> BOOL .
+	eq esDivisible(x, 0) = false .
+	eq esDivisible(0, x) = false .
+	eq esDivisible(x, s(0)) = true .	
+	eq esDivisible(s(x), s(y)) = esDivisible(x, y) .
+
+	op esDivisibleExacto : Nat Nat -> BOOL .
+	eq esDivisibleExacto(x, y) = (x % y) == 0 . 
+
+	op esFibAux : Nat Nat Nat -> BOOL .
+	eq esFibAux(x, y, x) = true .
+	eq esFibAux(x, s(s(s(s(0)))), z) = false .
+	eq esFibAux(x, s(y), z) = esFibAux(x, y, fib(y)) .
+
+	op esFib : Nat -> BOOL .
+	eq esFib(0) = true .
+	eq esFib(s(0)) = true .
+	eq esFib(s(s(0))) = true .
+	eq esFib(s(s(s(0)))) = true .
+	eq esFib(s(s(s(s(s(0)))))) = true .
+	eq esFib(x) = esFibAux(x, s(x), s(x)) .
+
+	***op esPrimo : Nat -> BOOL .
+	***eq esPrimo (auxiliar se necesita)
+
+endfm

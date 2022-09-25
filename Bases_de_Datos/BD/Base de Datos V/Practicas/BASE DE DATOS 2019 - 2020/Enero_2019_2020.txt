@@ -1,0 +1,48 @@
+--Enero 2019/2020:
+--Ejercicio 1: Se desea visualizar el número de votantes de cada localidad respecto a su situación laboral. Muestre el número total de votantes de cada localidad en una columna. En las otras columnas debe aparecer el número total de votantes de esa localidad según su situación laboral: parado, activo, estudiante o jubilado.
+SELECT localidades.nombre "Localidad", 
+(SELECT COUNT(votantes.dni) FROM votantes WHERE votantes.localidad = localidades.idlocalidad) "Votantes", 
+(SELECT COUNT(votantes.dni) FROM votantes WHERE votantes.localidad = localidades.idlocalidad AND votantes.situacionlaboral LIKE 'Parado') "Parados",
+(SELECT COUNT(votantes.dni) FROM votantes WHERE votantes.localidad = localidades.idlocalidad AND votantes.situacionlaboral LIKE 'Activo') "Activos",
+(SELECT COUNT(votantes.dni) FROM votantes WHERE votantes.localidad = localidades.idlocalidad AND votantes.situacionlaboral LIKE 'Jubilado') "Jubilados",
+(SELECT COUNT(votantes.dni) FROM votantes WHERE votantes.localidad = localidades.idlocalidad AND votantes.situacionlaboral LIKE 'Estudiante') "Estudiantes"
+FROM localidades;
+
+--Ejercicio 2: Muestre el nombre de los votantes cuya longitud del primer nombre sea menor que el ID  de la localidad a la que pertenecen y junto a ella muestre la diferencia de edad (en años) entre la persona más joven y más mayor de su localidad.
+SELECT a.nombrecompleto "Nombre", ROUND((a.fechanacimiento - (SELECT MIN(b.fechanacimiento) FROM votantes b WHERE b.localidad = a.localidad))/365) "Diferencia"
+FROM votantes a
+WHERE LENGTH(SUBSTR(a.nombrecompleto, 1, INSTR(a.nombrecompleto, ' '))) < a.localidad;
+
+--Ejercicio 3: Determinar cuál es el partido político con más resultados de eventos. Se tiene que hacer mediante un consulta PL/SQL.
+set serveroutput on;
+declare
+  type hash_map is table of number index by partidos.nombrecompleto%type;
+  my_map hash_map;
+  iterator partidos.nombrecompleto%type;
+  mayor partidos.nombrecompleto%type;
+  cursor c is select partidos.nombrecompleto, consultas_datos.partido from partidos, consultas_datos where partidos.idpartido = consultas_datos.partido;
+begin
+for num_row in c loop
+  if my_map.exists(num_row.nombrecompleto)
+  then my_map(num_row.nombrecompleto) := my_map(num_row.nombrecompleto) + 1;
+  else my_map(num_row.nombrecompleto) := + 1;
+  end if;
+end loop;
+  
+iterator := my_map.first;
+mayor := my_map.first;
+
+while iterator is not null loop
+  if my_map(iterator) >= my_map(mayor)
+  then mayor := iterator;
+  end if;
+  
+  iterator := my_map.next(iterator);
+end loop;
+
+dbms_output.put_line(mayor|| ' -> ' || my_map(mayor));
+end;
+
+--Ejercicio 4: Cree una restricción para que no se inserten email inválidos. Los emails de los votantes deben tener antes del @ uno o más caracteres. Entre el @ y el . debe haber uno o más caracteres (asumiendo que sólo puede haber un . eb ek email) y ue después del . haya al menos dos caracteres.
+ALTER TABLE votantes
+ADD CONSTRAINT constraint_email CHECK(email LIKE '%_@_%._%');

@@ -1,0 +1,26 @@
+***ENTEROS
+load ENTEROS.maude
+
+reduce in ENTEROS : - s(0) + s(s(0)) .
+reduce in ENTEROS : - s(s(s(0))) + s(s(0)) .
+reduce in ENTEROS : s(s(0)) - (- s(0))  .
+reduce in ENTEROS : - s(s(s(0))) - s(s(0)) .
+reduce in ENTEROS : - s(s(0)) * s(s(0)) .
+reduce in ENTEROS : - s(s(0)) * - s(s(0)) .
+reduce in ENTEROS : s(s(0)) * s(s(0)) .
+reduce in ENTEROS : - s(s(0)) * - s(s(s(0))) .
+reduce in ENTEROS :  s(s(s(0))) ^ s(s(0)) .
+reduce in ENTEROS : - s(s(0)) ^ s(s(0)) .
+reduce in ENTEROS : s(s(0)) ^ s(s(0)) .
+reduce in ENTEROS : - s(s(0)) ^ s(s(s(0))) .
+
+
+***ENTEROS_OP
+load ENTEROS_OP.maude
+reduce in ENTEROS_OP : sumaSucesionEntera(s(s(0))) .
+reduce in ENTEROS_OP : sumaSucesionEntera(s(s(s(0)))) .
+reduce in ENTEROS_OP : sumaSucesionEntera(s(s(s(s(0))))) .
+reduce in ENTEROS_OP : sumaNPotencias(- s(s(s(0))), s(s(0))) .
+reduce in ENTEROS_OP : sumaNPotencias(s(s(s(0))), s(s(0))) .
+reduce in ENTEROS_OP : sumaNPotencias(- s(s(s(s(0)))), s(s(0))) .
+reduce in ENTEROS_OP : sumaNPotencias(- s(s(s(s(0)))), s(s(s(0)))) .

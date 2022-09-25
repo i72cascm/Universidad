@@ -1,0 +1,27 @@
+load NATURALES.maude
+load ENTEROS.maude
+
+fmod ENTEROS_OP is
+
+    including ENTEROS .
+    protecting NATURALES .
+    protecting INDEFINIDOS .
+
+    vars x y : Nat .
+    vars a b : Int .
+
+    op sumaSucesionEntera : Nat -> Int .
+    eq sumaSucesionEntera(NaN) = NaN .
+    eq sumaSucesionEntera(0) = 0 .
+    eq sumaSucesionEntera(s(x)) = (s(x) * ((- s(0)) ^ s(x))) + sumaSucesionEntera(x) .  
+
+    op sumaNPotencias : Int Nat -> Int .
+    eq sumaNPotencias(NaN, NaN) = NaN .
+    eq sumaNPotencias(a, NaN) = NaN .
+    eq sumaNPotencias(NaN, x) = NaN .
+    eq sumaNPotencias(0, 0) = NaN .
+    eq sumaNPotencias(NaN, NaN) = NaN .
+    eq sumaNPotencias(a, 0) = 0 .
+    eq sumaNPotencias(a, s(x)) = (a ^ s(x)) + sumaNPotencias(a, x) .
+
+endfm

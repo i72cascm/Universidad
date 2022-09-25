@@ -1,0 +1,77 @@
+set include BOOL off .
+
+load NATURALES.maude
+load BOOLEANOS_NAT.maude
+
+fmod BOOLEANOS_COMP is
+    including BOOLEANOS .
+    protecting NATURALES .
+    subsort Nat < BOOL .
+
+    vars N M L O P Q : Nat .
+
+    op _ == _ : Nat Nat -> BOOL .
+    eq N == N = true .
+    eq N == M = false .
+
+    op _ != _ : Nat Nat -> BOOL .
+    eq N != N = false .
+    eq N != M = true .
+
+    op _ < _ : Nat Nat -> BOOL .
+    eq N < 0 = false .
+    eq 0 < N = true .
+    eq s(N) < s(M) = N < M .
+
+    op _ > _ : Nat Nat -> BOOL .
+    eq 0 > 0 = false .
+    eq N > 0 = true .
+    eq 0 > N = false .
+    eq s(N) > s(M) = N > M .
+
+    op _ <= _ : Nat Nat -> BOOL .
+    eq 0 <= 0 = true .
+    eq N <= 0 = false .
+    eq 0 <= N = true .
+    eq s(N) <= s(M) = N <= M .
+
+    op _ >= _ : Nat Nat -> BOOL .
+    eq N >= 0 = true .
+    eq 0 >= N = false .
+    eq s(N) >= s(M) = N >= M .
+
+    op auxmin (_, _ -> _, _) : Nat Nat Nat Nat -> Nat .
+    eq auxmin (N, M -> 0, L) = N .
+    eq auxmin (N, M -> L, 0) = M .
+    eq auxmin (N, M -> s(L), s(O)) = auxmin (N, M -> L, O) .
+
+    op min : Nat Nat -> Nat .
+    eq min(N, M) = auxmin (N, M -> N, M) .
+
+    op auxmax (_, _ -> _, _) : Nat Nat Nat Nat -> Nat .
+    eq auxmax (N, M -> 0, L) = M .
+    eq auxmax (N, M -> L, 0) = N .
+    eq auxmax (N, M -> s(L), s(O)) = auxmax (N, M -> L, O) .
+
+    op max : Nat Nat -> Nat .
+    eq max(N, M) = auxmax (N, M -> N, M) .
+    
+    op auxmin3 (_, _, _ -> _, _, _) : Nat Nat Nat Nat Nat Nat -> Nat .
+    eq auxmin3 (N, M, P -> 0, L, O) = N .
+    eq auxmin3 (N, M, P -> L, 0, O) = M .
+    eq auxmin3 (N, M, P -> L, O, 0) = P .
+    eq auxmin3 (N, M, P -> s(L), s(O), s(Q)) = auxmin3 (N, M, P -> L, O, Q) .
+
+    op min3 : Nat Nat Nat -> Nat .
+    eq min3 (N, M, P) = auxmin3 (N, M, P -> N, M, P) .
+
+    op auxmax3 (_, _, _ -> _, _, _) : Nat Nat Nat Nat Nat Nat -> Nat .
+    eq auxmax3 (N, M, P -> 0, L, O) = max(M, P) .
+    eq auxmax3 (N, M, P -> L, 0, O) = max(N, P) .
+    eq auxmax3 (N, M, P -> L, O, 0) = max(N, M) .
+    eq auxmax3 (N, M, P -> s(L), s(O), s(Q)) = auxmax3 (N, M, P -> L, O, Q) .
+
+    op max3 : Nat Nat Nat -> Nat .
+    eq max3 (N, M, P) = auxmax3 (N, M, P -> N, M, P) .
+
+endfm

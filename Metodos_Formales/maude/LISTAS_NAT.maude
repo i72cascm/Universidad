@@ -1,0 +1,76 @@
+load NATURALES.maude
+load BOOLEANOS.maude
+
+fmod LISTAS_NAT  is
+
+    protecting NATURALES .
+    protecting BOOLEANOS .
+
+    sort LIST .
+     
+    op nil : -> LIST [ctor] .
+    op __ : LIST Nat -> LIST [ctor] .
+    op _ ++ _ : LIST Nat -> LIST [ctor] .
+
+    vars L O P Q : LIST .
+    var N : Nat .
+
+    *** Lista vacía
+    op empty : LIST -> BOOL . 
+    eq empty(nil) = true .
+    eq empty(L) = false .
+
+    op len : LIST -> Nat .
+    eq len(nil) = 0 .
+    eq len(L N) = s(len(L)) .
+
+    op first : LIST -> Nat .
+    eq first(nil) = 0 .
+    eq first(nil N) = N .
+    eq first(L N) = first(L) .
+
+    op last : LIST -> Nat .
+    eq last(nil) = 0 .
+    eq last(L N) = N .
+
+    op sum : LIST -> Nat .
+    eq sum(nil) = 0 .
+    eq sum(L N) = sum(L) + N .
+
+    op deleteLast : LIST -> LIST .
+    eq deleteLast(nil) = nil .
+    eq deleteLast(L N) = L .
+
+    op auxReverse : LIST LIST -> LIST .
+    eq auxReverse(nil, L) = L .
+    eq auxReverse(L N, O) = auxReverse(L, O N) .
+
+    op reverse : LIST -> LIST .
+    eq reverse(nil) = nil .
+    eq reverse(L) = auxReverse(L, nil) .
+
+    op auxDeleteFirst : LIST LIST -> LIST .
+    eq auxDeleteFirst(nil N, L) = auxReverse(L, nil) .
+    eq auxDeleteFirst(L N, O) = auxDeleteFirst(L, O N) .
+
+    op deleteFirst : LIST -> LIST .
+    eq deleteFirst(nil) = nil .
+    eq deleteFirst(L) = auxDeleteFirst(L, nil) .
+    
+    op auxConcat : LIST LIST -> LIST .
+    eq auxConcat(L, nil) = L .
+    eq auxConcat(L, O N) = auxConcat(L N, O) .
+
+    op concat : LIST LIST -> LIST .
+    eq concat(L, O) = auxConcat(L, reverse(O)) .
+
+    op auxMaxList (_, _ -> _, _) : LIST LIST LIST LIST -> LIST .
+    eq auxMaxList (L, O -> P, nil) = L .
+    eq auxMaxList (L, O -> nil, P) = O .
+    eq auxMaxList (L, O -> P, Q) = auxMaxList (L, O -> deleteLast(P), deleteLast(Q)) .
+
+    op maxList : LIST LIST -> LIST .
+    eq maxList(nil, nil) = nil .
+    eq maxList(L, O) = auxMaxList (L, O -> L, O) .
+
+endfm

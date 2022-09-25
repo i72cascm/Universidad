@@ -1,0 +1,33 @@
+load LISTAS_NAT.maude
+
+reduce in LISTAS_NAT : empty(nil 0 s(0)) .
+reduce in LISTAS_NAT : empty(nil) .
+reduce in LISTAS_NAT : len(nil 0 s(0)) .
+reduce in LISTAS_NAT : len(nil) .
+reduce in LISTAS_NAT : len(nil 0 s(0) 0 0 0 s(0)) .
+reduce in LISTAS_NAT : first(nil s(0) s(s(s(0))) s(s(0)) 0 s(0)) .
+reduce in LISTAS_NAT : first(nil 0 s(0) s(s(s(0))) s(s(0)) 0 s(0) 0) .
+reduce in LISTAS_NAT : last(nil s(0) s(s(s(0))) s(s(0)) 0 s(0)) .
+reduce in LISTAS_NAT : last(nil 0 0 s(0) s(s(s(0))) s(s(0)) 0 s(0) 0 s(s(0))) .
+reduce in LISTAS_NAT : sum(nil s(0) 0 s(s(0))) .
+reduce in LISTAS_NAT : sum(nil s(0) 0 s(s(0)) 0 s(s(s(s(0))))) .
+reduce in LISTAS_NAT : sum(nil s(0) 0) .
+reduce in LISTAS_NAT : sum(nil) .
+reduce in LISTAS_NAT : reverse(nil 0 s(0) s(s(0))) .
+reduce in LISTAS_NAT : reverse(nil) .
+reduce in LISTAS_NAT : reverse(nil 0 s(0) s(s(0)) 0 0 0) .
+reduce in LISTAS_NAT : reverse(nil s(0) 0 s(0) 0 s(s(0))) .
+reduce in LISTAS_NAT : deleteFirst(nil s(0) s(s(s(0))) s(s(0)) 0 s(0)) .
+reduce in LISTAS_NAT : deleteFirst(nil s(s(s(0))) s(s(0)) 0 s(0)) .
+reduce in LISTAS_NAT : deleteFirst(nil) .
+reduce in LISTAS_NAT : deleteLast(nil s(0) s(s(s(0))) s(s(0)) 0 s(0)) .
+reduce in LISTAS_NAT : deleteLast(nil) .
+reduce in LISTAS_NAT : deleteLast(nil s(0) s(s(s(0))) s(s(0)) 0 s(0) 0) .
+reduce in LISTAS_NAT : concat((nil s(0) s(s(0))), (nil s(s(0)) 0)) .
+reduce in LISTAS_NAT : concat((nil s(0) s(s(0))), (nil) .
+reduce in LISTAS_NAT : concat((nil), (nil) .
+reduce in LISTAS_NAT : concat((nil s(0) s(s(0)) 0 s(0) s(s(s(0))), (nil 0 0 0 s(s(0)) 0)) .
+reduce in LISTAS_NAT : maxList(nil s(0) 0 s(s(0)), nil 0) .
+reduce in LISTAS_NAT : maxList(nil s(0) 0 s(s(0)), nil 0 s(0) 0 0 0 0 0 0) .
+reduce in LISTAS_NAT : maxList(nil s(0) 0 0 0 0 0 0 0 0 0 0 0 s(s(0)), nil 0 s(0) 0 0 0 0 0 0) .
+reduce in LISTAS_NAT : maxList(nil, nil) .

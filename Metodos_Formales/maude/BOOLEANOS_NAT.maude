@@ -1,0 +1,39 @@
+set include BOOL off .
+
+load NATURALES.maude
+load BOOLEANOS.maude
+
+fmod BOOLEANOS_NAT is
+    including BOOLEANOS .
+    protecting NATURALES .
+    subsort Nat < BOOL .
+
+    vars x y : Nat .
+    
+
+    op not _ : Nat -> BOOL [prec 1] .
+    eq not 0 = true .
+    eq not x = false .
+
+    op _ and _ : Nat Nat -> BOOL [comm assoc prec 2] .
+    eq 0 and x = false . 
+    eq x and y = true .
+    
+    op _ or _ : Nat Nat -> BOOL [comm assoc prec 3] .
+    eq 0 or 0 = false .
+    eq x or y =  true .
+
+    op _ xor _ : Nat Nat -> BOOL [comm assoc prec 4] .
+    eq 0 xor 0 = true .
+    eq x xor x = true .
+    eq x xor y = false .
+
+    op _ nor _ : Nat Nat -> BOOL [comm assoc prec 5] .
+    eq 0 nor 0 = true .
+    eq x or y = false .
+
+    op _ nand _ : Nat Nat -> BOOL [comm assoc prec 6] .
+    eq 0 and x = true . 
+    eq x and y = false .
+
+endfm

@@ -1,0 +1,5 @@
+/home/manuelcasas/uni/fsiv/i72cascm_P2/build/CMakeFiles/rebuild_cache.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P2/build/CMakeFiles/edit_cache.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P2/build/CMakeFiles/P2repaso2.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P2/build/CMakeFiles/P2repaso.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P2/build/CMakeFiles/P2.dir

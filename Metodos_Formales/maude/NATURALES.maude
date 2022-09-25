@@ -1,0 +1,78 @@
+load INDEFINIDOS.maude
+
+fmod NATURALES is
+
+    protecting INDEFINIDOS .
+    sort Nat .
+    subsort INDEF < Nat .
+    op 0 : -> Nat .
+    op s : Nat -> Nat .
+
+    op _+_ : Nat Nat -> Nat .
+    vars x y z : Nat .
+    eq 0 + x = x .
+    eq x + 0 = x .
+    eq x + s(y) = s(x) + y .
+    eq NaN + x = NaN .
+    eq x + NaN = NaN .
+
+    op _-_ : Nat Nat -> Nat .
+    eq NaN - x = NaN .
+    eq x - NaN = NaN .
+    eq x - 0 = x .
+    eq 0 - x = 0 .
+    eq s(x) - s(y) = x - y .
+
+    op _dif_ : Nat Nat -> Nat .
+    eq x dif NaN = NaN .
+    eq NaN dif x = NaN .
+    eq x dif 0 = x .
+    eq 0 dif x = x .
+    eq s(x) dif s(y) = x dif y .
+
+    op _*_ : Nat Nat -> Nat .
+    eq NaN * x = NaN .
+    eq x * NaN = NaN .
+    eq x * 0 = 0 .
+    eq 0 * x = 0 .
+    eq x * s(y) = (x * y) + x .
+
+    op _^_ : Nat Nat -> Nat .
+    eq 0 ^ 0 = NaN .
+    eq x ^ 0 = s(0) .
+    eq 0 ^ x = 0 .
+    eq x ^ s(y)  = (x ^ y) * x .
+    eq x ^ NaN = NaN .
+    eq NaN ^ x = NaN .
+
+    op _! : Nat -> Nat .
+    eq NaN ! = NaN .
+    eq 0 ! = s(0) .
+    eq s(x) ! = x ! * s(x)  .
+
+    op auxDiv : Nat Nat -> Nat .
+    eq auxDiv(x,x) = s(0) .
+    eq auxDiv(x,0) = s(0) .
+    eq auxDiv(0,x) = 0 .
+    eq auxDiv(s(x),s(y)) = auxDiv(x,y) . 
+
+    op _/_ : Nat Nat -> Nat .
+    eq x / 0 = NaN .
+    eq NaN / x = NaN .
+    eq x / NaN = NaN .
+    eq 0 / x = 0 .
+    eq x / s(0) = x .
+    eq x / x = s(0) .
+    eq x / y = auxDiv(x,y) + ((x - y) / y) .
+
+    op _ _ mod _ : Nat Nat Nat -> Nat .
+    eq x 0 mod y = x .
+    *** eq x 0 mod x = 0 . (esta podria valer como sustituto de caso base)
+    eq y x mod x = 0 .
+    eq z x mod y = x (x - y) mod y .
+    
+    op _%_ : Nat Nat -> Nat .
+    eq x % y = 0 x mod y .
+    eq x % 0 = NaN .
+    
+endfm

@@ -1,0 +1,75 @@
+--Ejercicio 1:
+SET serveroutput ON;
+DECLARE
+  CURSOR c IS SELECT partidos.presidente FROM partidos;
+  p_presidente partidos.presidente%type;
+BEGIN
+  FOR num_row IN c
+  LOOP
+    IF num_row.presidente LIKE '%o %o %o' THEN p_presidente := num_row.presidente;
+    dbms_output.put_line(p_presidente);
+    END IF;
+  END LOOP;
+END;
+
+--Ejercicio 2:
+set serveroutput on;
+declare
+--Creación del hashmap cuya segunda columna son los flotantes indexados por el nombre del partido.
+  type hash_map is table of float index by partidos.nombrecompleto%type;
+--Variable asociada al hash map.
+  my_map hash_map;
+--Variable para recorrer al final el hashmap, el cual está indexado por partidos.nombrecompleto.
+  iterator partidos.nombrecompleto%type;
+  cursor c is select partidos.nombrecompleto, eventos_resultados.resultado from partidos, eventos_resultados where partidos.idpartido = eventos_resultados.partido;
+begin
+  for num_row in c loop
+  --En caso de que exista el índice en mi mapa
+    if my_map.exists(num_row.nombrecompleto)
+  --Entonces en la columna de los flotantes se almacena la fila actual + lo que ya había almacenado.
+    then my_map(num_row.nombrecompleto) := num_row.resultado + my_map(num_row.nombrecompleto);
+  --Como no hay nada previo, le almaceno el primero que me encuentre asociado al partido.
+    else my_map(num_row.nombrecompleto) := num_row.resultado;
+    end if;
+  end loop;
+  
+  --Asocio al iterador el primer índice del mapa. A partir de aquí se trabaja con el iterador.
+  iterator := my_map.first;
+  while iterator is not null loop
+  dbms_output.put_line(iterator || ' -> ' || my_map(iterator));
+  iterator := my_map.next(iterator);
+  end loop;
+end;
+
+--Ejercicio 3:
+SET serveroutput ON;
+DECLARE
+  CURSOR c IS SELECT votantes.nombrecompleto FROM votantes WHERE votantes.dni LIKE CONCAT('%', (votantes.localidad + 1));
+  contador NUMBER := 0;
+BEGIN
+  FOR num_row IN c
+  LOOP
+    dbms_output.put_line(num_row.nombrecompleto);
+    contador := contador + 1;
+  END LOOP;
+  dbms_output.put_line('Hay un total de ' || contador || ' votantes.');
+END;
+
+--Ejercicio 4: Aquí si que hay que usar doble cursor y la cláusula FETCH.
+SET serveroutput ON;
+DECLARE 
+CURSOR c IS SELECT votantes.dni FROM votantes ORDER BY votantes.dni DESC;
+  v_dni votantes.dni%type;
+  v_dni1 votantes.dni%type;
+BEGIN
+  OPEN c;
+  FETCH c INTO v_dni;
+  FETCH c INTO v_dni1;
+  LOOP
+  EXIT WHEN c%NOTFOUND;
+    dbms_output.put_line(v_dni || ' va antes que ' || v_dni1);
+    v_dni:= v_dni1;
+  FETCH C INTO v_dni1;
+  END LOOP;
+  dbms_output.put_line('el menor es ' || v_dni);
+END;

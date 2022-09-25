@@ -1,0 +1,66 @@
+CREATE TABLE "AUDIT_TABLE"("DATOS" VARCHAR2(100 BYTE), "TABLA" VARCHAR2(100 BYTE));
+
+--Ejercicio 1:
+SET serveroutput ON;
+CREATE OR REPLACE TRIGGER eve
+  AFTER UPDATE or INSERT ON eventos
+  FOR EACH ROW
+BEGIN
+  INSERT INTO audit_table
+  VALUES(:old.nombre ||' ' || :new.nombre, 'EVENTOS');
+END;
+
+--Ejercicio2:
+SET serveroutput ON;
+CREATE OR REPLACE TRIGGER habitantes_loc
+  BEFORE UPDATE or INSERT ON localidades
+  FOR EACH ROW
+BEGIN
+  IF :new.numerohabitantes > 4000000 or :new.numerohabitantes < 1
+  THEN :new.numerohabitantes := :old.numerohabitantes;
+  END IF;
+END;
+
+--Ejercicio 3:
+set serveroutput on;
+create or replace trigger p6_e3
+before update or insert on consultas
+for each row
+declare
+my_date date;
+begin
+select sysdate into my_date from dual;
+if :new.fecha > my_date
+then :new.fecha := my_date;
+end if;
+insert into audit_table values('Hubo cambios en la fecha, de ' || :old.fecha || ' a ' || :new.fecha, 'consultas');
+end;
+
+--Ejercicio 4:
+ALTER TABLE votantes
+ADD CONSTRAINT num_constraint CHECK(telefono >= 600000000 AND telefono <= 799999999);
+
+--Ejercicio 5: --REVISAR
+ALTER TABLE eventos
+ADD CONSTRAINT mayus_constraint CHECK(UPPER(SUBSTR(tipo, 1, 1)) LIKE SUBSTR(tipo, 1, 1) 
+ AND (SUBSTR(tipo, LENGTH(tipo), 1)) LIKE 's');
+
+
+ 
+--Ejercicio 6:
+SET serveroutput ON;
+CREATE OR REPLACE TRIGGER sit_laboral
+  BEFORE UPDATE OR INSERT ON votantes
+  FOR EACH ROW
+DECLARE
+  fecha DATE;
+  edad NUMBER;
+BEGIN
+  SELECT SYSDATE INTO fecha FROM dual;
+  edad := (fecha - :new.fechanacimiento) / 365;
+  IF edad > 59 AND :new.situacionlaboral NOT LIKE 'Jubilado'
+  THEN :new.situacionlaboral := 'Jubilado';
+    INSERT INTO audit_table
+    VALUES('Votante con DNI ' || :new.dni || 'tiene más de 59 años y no está jubilado.', 'VOTANTES');
+  END IF;
+END;

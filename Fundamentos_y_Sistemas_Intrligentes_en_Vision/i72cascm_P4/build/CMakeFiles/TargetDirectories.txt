@@ -1,0 +1,6 @@
+/home/manuelcasas/uni/fsiv/i72cascm_P4/build/CMakeFiles/rebuild_cache.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P4/build/CMakeFiles/edit_cache.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P4/build/CMakeFiles/P4repaso2.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P4/build/CMakeFiles/P4repaso.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P4/build/CMakeFiles/P4fran.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P4/build/CMakeFiles/P4.dir

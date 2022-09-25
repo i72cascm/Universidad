@@ -1,0 +1,8 @@
+/home/manuelcasas/uni/fsiv/cv_tutorial/build/CMakeFiles/rebuild_cache.dir
+/home/manuelcasas/uni/fsiv/cv_tutorial/build/CMakeFiles/edit_cache.dir
+/home/manuelcasas/uni/fsiv/cv_tutorial/build/CMakeFiles/prg5.dir
+/home/manuelcasas/uni/fsiv/cv_tutorial/build/CMakeFiles/prg4.dir
+/home/manuelcasas/uni/fsiv/cv_tutorial/build/CMakeFiles/invert.dir
+/home/manuelcasas/uni/fsiv/cv_tutorial/build/CMakeFiles/prg3.dir
+/home/manuelcasas/uni/fsiv/cv_tutorial/build/CMakeFiles/prg2.dir
+/home/manuelcasas/uni/fsiv/cv_tutorial/build/CMakeFiles/prg1.dir

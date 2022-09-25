@@ -1,0 +1,5 @@
+/home/manuelcasas/uni/fsiv/i72cascm_P5/build/CMakeFiles/rebuild_cache.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P5/build/CMakeFiles/edit_cache.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P5/build/CMakeFiles/P5repaso.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P5/build/CMakeFiles/P5fran.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P5/build/CMakeFiles/P5.dir

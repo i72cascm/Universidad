@@ -1,0 +1,117 @@
+﻿1-
+SELECT NOMBRECOMPLETO
+FROM VOTANTES
+WHERE DNI LIKE CONCAT('%', (LOCALIDAD + 1));
+
+NOMBRECOMPLETO                                                 
+----------------------------------------------------------------
+Pedro Jimenez Santos                                            
+Marta Sanchez Rodriguez                                         
+Luisa Cano Vega
+
+2-
+SELECT VOTANTES.NOMBRECOMPLETO, VOTANTES.LOCALIDAD,
+DECODE(VOTANTES.LOCALIDAD, 1, 'MADRID', 2, 'MADRID', 3, 'MADRID', LOCALIDADES.NOMBRE)
+FROM VOTANTES, LOCALIDADES
+WHERE VOTANTES.LOCALIDAD=LOCALIDADES.IDLOCALIDAD;
+
+NOMBRECOMPLETO                                                    LOCALIDAD DECODE(VOTANTES.LOCALIDAD,1,'MADRID',2,'MADRID',3,'MADRID',LOCAL
+---------------------------------------------------------------- ---------- ----------------------------------------------------------------
+Hector Mendoza Hernandez                                                  1 MADRID                                                          
+Alberto Nuñez Fernandez                                                  1 MADRID                                                          
+Maria Gonzalez Ramirez                                                    1 MADRID                                                          
+Marta Sanchez Rodriguez                                                   1 MADRID                                                          
+Pablo Morales Raigan                                                      2 MADRID                                                          
+Luisa Cano Vega                                                           3 MADRID                                                          
+Estrella Ortiz Mengual                                                    4 Sevilla                                                         
+Pedro Jimenez Santos                                                      4 Sevilla                                                         
+Laura Valenzuela Ferrer                                                   4 Sevilla                                                         
+Alvaro Diaz Gomez                                                         5 Utrera                                                          
+Jose Perez Perez                                                          5 Utrera                                                          
+
+NOMBRECOMPLETO                                                    LOCALIDAD DECODE(VOTANTES.LOCALIDAD,1,'MADRID',2,'MADRID',3,'MADRID',LOCAL
+---------------------------------------------------------------- ---------- ----------------------------------------------------------------
+Carolina Lopez Muriel                                                     5 Utrera                                                          
+Ana María Expósito Escudero                                             6 Carmona                                                         
+Andres Carrasco Cruz                                                      7 Getafe                                                          
+Martin Hoyos Martin                                                       9 Madrid                                                          
+Lucia Hoyos Martin                                                        9 Madrid                                                          
+Jose Hoyos Martin                                                         9 Madrid                                                          
+Manuel Medina Alvarez                                                    11 Badalona                                                        
+
+ 18 filas seleccionadas 
+
+3-
+SELECT PARTIDOS.SIGLAS
+FROM PARTIDOS,EVENTOS_RESULTADOS
+WHERE PARTIDOS.IDPARTIDO = EVENTOS_RESULTADOS.PARTIDO
+AND EVENTOS_RESULTADOS.PARTIDO = (SELECT MAX(EVENTOS_RESULTADOS.PARTIDO) FROM EVENTOS_RESULTADOS)
+GROUP BY PARTIDOS.SIGLAS;
+
+REHACER
+
+
+
+4-
+SELECT DNI
+FROM VOTANTES
+WHERE FECHANACIMIENTO = (SELECT MIN(FECHANACIMIENTO) FROM VOTANTES 
+WHERE FECHANACIMIENTO > (SELECT MIN(FECHANACIMIENTO) FROM VOTANTES));
+
+       DNI
+----------
+   8727847
+
+5-
+SELECT VOTANTES.DNI, COUNT(CONSULTAS.VOTANTE)
+FROM VOTANTES, CONSULTAS
+WHERE VOTANTES.DNI = CONSULTAS.VOTANTE
+GROUP BY VOTANTES.DNI;
+
+       DNI                COUNT(CONSULTAS.VOTANTE)
+---------- ---------------------------------------
+  45245264                                       4
+  45374737                                       4
+  80762946                                       2
+  30559073                                       2
+  30559074                                       2
+  41867538                                       4
+  30852845                                       2
+  45657294                                       2
+   8727847                                       2
+  44826745                                       4
+  75648104                                       3
+
+       DNI                COUNT(CONSULTAS.VOTANTE)
+---------- ---------------------------------------
+  30559075                                       2
+  30983712                                       4
+  31075940                                       5
+  30725352                                       5
+  31087814                                       4
+  45628436                                       3
+
+ 17 filas seleccionadas 
+
+6- 
+SELECT VOTANTES.DNI, COUNT(CONSULTAS.VOTANTE)
+FROM VOTANTES, CONSULTAS
+WHERE VOTANTES.DNI = CONSULTAS.VOTANTE
+HAVING COUNT (CONSULTAS.VOTANTE) > (SELECT AVG(COUNT(CONSULTAS.VOTANTE)) 
+FROM CONSULTAS, VOTANTES WHERE VOTANTES.DNI=CONSULTAS.VOTANTE GROUP BY VOTANTES.DNI)
+
+GROUP BY VOTANTES.DNI
+ORDER BY COUNT(CONSULTAS.VOTANTE) DESC;
+
+       DNI                COUNT(CONSULTAS.VOTANTE)
+---------- ---------------------------------------
+  31075940                                       5
+  30725352                                       5
+  45245264                                       4
+  45374737                                       4
+  31087814                                       4
+  30983712                                       4
+  44826745                                       4
+  41867538                                       4
+
+7-

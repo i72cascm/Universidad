@@ -1,0 +1,11 @@
+Run the program:
+
+-Create the "build" directory.
+
+-Open a console terminal in the "build" directory.
+
+-Type: cmake ..
+
+-Type: make
+
+-Run the program: ./P2 ../image.jpg

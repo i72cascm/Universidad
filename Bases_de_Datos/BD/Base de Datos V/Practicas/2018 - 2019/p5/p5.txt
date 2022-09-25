@@ -1,0 +1,138 @@
+﻿1-
+SET SERVEROUTPUT ON;
+
+DECLARE 
+CURSOR C IS SELECT NOMBRECOMPLETO FROM VOTANTES WHERE DNI LIKE CONCAT('%',(LOCALIDAD+1));
+V_NOMBRE votantes.nombrecompleto%type;
+CONT NUMBER:=0;
+
+BEGIN
+OPEN C;
+LOOP
+FETCH C INTO V_NOMBRE;
+EXIT WHEN C%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE(V_NOMBRE);
+CONT:=CONT+1;
+END LOOP;
+DBMS_OUTPUT.PUT_LINE('Hay un total de ' ||CONT|| ' votantes.');
+END;
+
+Procedimiento PL/SQL terminado correctamente.
+Pedro Jimenez Santos
+Marta Sanchez Rodriguez
+Luisa Cano Vega
+Hay un total de 3 votantes.
+
+2-
+SET SERVEROUTPUT ON;
+
+DECLARE 
+CURSOR C IS SELECT VOTANTES.NOMBRECOMPLETO, VOTANTES.LOCALIDAD,
+DECODE(LOCALIDAD, 1, 'Madrid', 2, 'Madrid', 3, 'Madrid', LOCALIDADES.NOMBRE) AS NOMBRE 
+FROM VOTANTES, LOCALIDADES 
+WHERE VOTANTES.LOCALIDAD=LOCALIDADES.IDLOCALIDAD;
+CONT NUMBER:=0;
+
+BEGIN
+FOR NUM_ROW IN C LOOP
+DBMS_OUTPUT.PUT_LINE(NUM_ROW.NOMBRECOMPLETO || ' ' || NUM_ROW.NOMBRE);
+IF NUM_ROW.NOMBRE = 'Madrid' THEN CONT:=CONT+1;
+END IF;
+END LOOP;
+DBMS_OUTPUT.PUT_LINE('Hay un total de ' ||CONT|| ' votantes de Madrid.');
+END;
+
+Procedimiento PL/SQL terminado correctamente.
+Jose Perez Perez Utrera
+Laura Valenzuela Ferrer Sevilla
+Pedro Jimenez Santos Sevilla
+Marta Sanchez Rodriguez Madrid
+Ana María Expósito Escudero Carmona
+Alberto Nuñez Fernandez Madrid
+Carolina Lopez Muriel Utrera
+Pablo Morales Raigan Madrid
+Manuel Medina Alvarez Badalona
+Luisa Cano Vega Madrid
+Alvaro Diaz Gomez Utrera
+Estrella Ortiz Mengual Sevilla
+Hector Mendoza Hernandez Madrid
+Andres Carrasco Cruz Getafe
+Lucia Hoyos Martin Madrid
+Martin Hoyos Martin Madrid
+Jose Hoyos Martin Madrid
+Hay un total de 8 votantes de Madrid.
+
+3-
+SET SERVEROUTPUT ON;
+
+DECLARE 
+CURSOR C IS SELECT DNI FROM VOTANTES ORDER BY DNI DESC;
+V_DNI VOTANTES.DNI%type;
+V_DNI1 VOTANTES.DNI%type;
+
+BEGIN
+OPEN C;
+FETCH C INTO V_DNI;
+FETCH C INTO V_DNI1;
+LOOP
+EXIT WHEN C%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE(V_DNI || ' va antes que ' || V_DNI1);
+V_DNI:=V_DNI1;
+FETCH C INTO V_DNI1;
+END LOOP;
+DBMS_OUTPUT.PUT_LINE(V_DNI  ||' es el menor');
+END;
+
+Procedimiento PL/SQL terminado correctamente.
+80762946 va antes que 75648104
+75648104 va antes que 45657294
+45657294 va antes que 45628436
+45628436 va antes que 45374737
+45374737 va antes que 45245264
+45245264 va antes que 44826745
+44826745 va antes que 41867538
+41867538 va antes que 31087814
+31087814 va antes que 31075940
+31075940 va antes que 30983712
+30983712 va antes que 30852845
+30852845 va antes que 30725352
+30725352 va antes que 30559075
+30559075 va antes que 30559074
+30559074 va antes que 30559073
+30559073 va antes que 8727847
+8727847 es el menor
+
+4-
+SET SERVEROUTPUT ON;
+
+DECLARE 
+CURSOR C IS SELECT VOTANTES.DNI, COUNT(CONSULTAS.VOTANTE) FROM VOTANTES, CONSULTAS 
+WHERE VOTANTES.DNI=CONSULTAS.VOTANTE
+HAVING COUNT (CONSULTAS.VOTANTE) > (SELECT AVG(COUNT(CONSULTAS.VOTANTE)) FROM CONSULTAS, votantes  WHERE VOTANTES.DNI=CONSULTAS.VOTANTE GROUP BY VOTANTES.DNI)
+GROUP BY VOTANTES.DNI
+ORDER BY COUNT(CONSULTAS.VOTANTE) DESC;
+
+V_DNI VOTANTES.DNI%type;
+C_VOTANTE CONSULTAS.VOTANTE%TYPE;
+
+CONT NUMBER:=0;
+
+BEGIN
+OPEN C;
+LOOP
+FETCH C INTO V_DNI, C_VOTANTE;
+EXIT WHEN C%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE(V_DNI || ' ha participado ' || C_VOTANTE);
+CONT:=CONT+1;
+END LOOP;
+END;
+
+Procedimiento PL/SQL terminado correctamente.
+30725352 ha participado 5
+31075940 ha participado 5
+41867538 ha participado 4
+31087814 ha participado 4
+30983712 ha participado 4
+45374737 ha participado 4
+45245264 ha participado 4
+44826745 ha participado 4

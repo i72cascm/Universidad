@@ -1,0 +1,224 @@
+PRACTICA 1
+
+1- 
+CARGAR LOS DATOS
+
+2-
+SELECT table_name
+FROM user_tables;
+
+TABLE_NAME                   
+------------------------------
+PARTIDOS                      
+PROVINCIAS                    
+LOCALIDADES                   
+VOTANTES                      
+EVENTOS                       
+EVENTOS_RESULTADOS            
+CONSULTAS                     
+CONSULTAS_DATOS               
+
+ 8 filas seleccionadas 
+
+3- 
+DESCRIBE CONSULTAS;
+DESCRIBE CONSULTAS_DATOS;
+DESCRIBE EVENTOS;
+DESCRIBE EVENTOS_RESULTADOS;
+DESCRIBE LOCALIDADES;
+DESCRIBE PARTIDOS;
+DESCRIBE PROVINCIAS;
+DESCRIBE VOTANTES;
+
+
+Nombre     Nulo     Tipo      
+---------- -------- --------- 
+IDCONSULTA NOT NULL NUMBER(6) 
+EVENTO     NOT NULL NUMBER(6) 
+VOTANTE    NOT NULL NUMBER(8) 
+FECHA      NOT NULL DATE      
+
+Nombre      Nulo     Tipo        
+----------- -------- ----------- 
+IDRECOGIDA  NOT NULL NUMBER(6)   
+CONSULTA    NOT NULL NUMBER(6)   
+PARTIDO     NOT NULL NUMBER(3)   
+RESPUESTA   NOT NULL VARCHAR2(2) 
+CERTIDUMBRE NOT NULL FLOAT(63)   
+
+Nombre   Nulo     Tipo           
+-------- -------- -------------- 
+IDEVENTO NOT NULL NUMBER(6)      
+NOMBRE   NOT NULL VARCHAR2(32)   
+FECHA    NOT NULL DATE           
+TIPO     NOT NULL VARCHAR2(16)   
+DETALLE           VARCHAR2(1024) 
+
+Nombre      Nulo     Tipo      
+----------- -------- --------- 
+IDRESULTADO NOT NULL NUMBER(6) 
+EVENTO      NOT NULL NUMBER(6) 
+PARTIDO     NOT NULL NUMBER(3) 
+RESULTADO   NOT NULL FLOAT(63) 
+
+Nombre           Nulo     Tipo         
+---------------- -------- ------------ 
+IDLOCALIDAD      NOT NULL NUMBER(3)    
+NOMBRE           NOT NULL VARCHAR2(64) 
+NUMEROHABITANTES NOT NULL NUMBER(38)   
+PROVINCIA        NOT NULL NUMBER(3)    
+
+Nombre         Nulo     Tipo         
+-------------- -------- ------------ 
+IDPARTIDO      NOT NULL NUMBER(3)    
+NOMBRECOMPLETO NOT NULL VARCHAR2(64) 
+SIGLAS                  VARCHAR2(6)  
+DIRECCION      NOT NULL VARCHAR2(64) 
+CIUDAD         NOT NULL VARCHAR2(64) 
+PRESIDENTE     NOT NULL VARCHAR2(32) 
+FECHACREACION  NOT NULL DATE         
+PRESUPUESTO             NUMBER(14)   
+
+Nombre           Nulo     Tipo         
+---------------- -------- ------------ 
+IDPROVINCIA      NOT NULL NUMBER(3)    
+NOMBRE           NOT NULL VARCHAR2(64) 
+NUMEROHABITANTES NOT NULL NUMBER(38)   
+COMUNIDAD        NOT NULL VARCHAR2(64) 
+
+Nombre             Nulo     Tipo         
+------------------ -------- ------------ 
+DNI                NOT NULL NUMBER(8)    
+NOMBRECOMPLETO              VARCHAR2(64) 
+ESTUDIOSSUPERIORES NOT NULL VARCHAR2(16) 
+SITUACIONLABORAL   NOT NULL VARCHAR2(16) 
+EMAIL              NOT NULL VARCHAR2(32) 
+LOCALIDAD          NOT NULL NUMBER(3)    
+FECHANACIMIENTO    NOT NULL DATE         
+TELEFONO                    NUMBER(14)
+
+4- RESOLVER SEGUNDA PARTE!!!!!!!!!!! --> PRIMERO BORRAR LA QUE APUNTA, Y LUEGO LA QUE ES APUNTADA
+DROP TABLE votantes;
+
+Error que empieza en la l�nea: 1 del comando :
+drop table votantes
+Informe de error -
+Error SQL: ORA-02449: claves �nicas/primarias en la tabla referidas por claves ajenas
+02449. 00000 -  "unique/primary keys in table referenced by foreign keys"
+*Cause:    An attempt was made to drop a table with unique or
+           primary keys referenced by foreign keys in another table.
+*Action:   Before performing the above operations the table, drop the
+           foreign key constraints in other tables. You can see what
+           constraints are referencing a table by issuing the following
+           command:
+           SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME = "tabnam";
+
+5-
+INSERT INTO VOTANTES  (VOTANTES.DNI , VOTANTES.NOMBRECOMPLETO , VOTANTES.ESTUDIOSSUPERIORES , VOTANTES.SITUACIONLABORAL , VOTANTES.EMAIL ,VOTANTES.LOCALIDAD, VOTANTES.FECHANACIMIENTO , VOTANTES.TELEFONO)
+VALUES (30653845, 'Maria Gonzalez Ramirez', 'Doctorado', 'Activo', 'goram@telefonica.es', 1, '21/08/1989', 677544822);
+
+1 fila insertadas.
+
+6-
+select*
+from votantes;
+
+       DNI NOMBRECOMPLETO                                                   ESTUDIOSSUPERIOR SITUACIONLABORAL EMAIL                             LOCALIDAD FECHANACIMIENTO   TELEFONO
+---------- ---------------------------------------------------------------- ---------------- ---------------- -------------------------------- ---------- --------------- ----------
+  30983712 Jose Perez Perez                                                 Basicos          Parado           jpp@gmail.com                             5 23/02/82         662234293
+  41867538 Laura Valenzuela Ferrer                                          Doctorado        Activo           lavafe@gmail.com                          4 09/09/75         722657395
+  44826745 Pedro Jimenez Santos                                             Basicos          Estudiante       jimsanped@yahoo.es                        4 12/09/97         625336491
+  30725352 Marta Sanchez Rodriguez                                          Ninguno          Parado           martita00@hotmail.com                     1 28/01/00         654825492
+  45245264 Ana María Expósito Escudero                                    Superiores       Activo           expositoeam@yahoo.es                      6 30/07/92         692547885
+  31075940 Alberto Nuñez Fernandez                                         Basicos          Jubilado         anfernandez@outlook.com                   1 14/05/50         666350983
+  45374737 Carolina Lopez Muriel                                            Basicos          Activo           karolop90@hotmail.com                     5 19/11/88         643176224
+  30852845 Pablo Morales Raigan                                             Doctorado        Activo           morapa@telefonica.es                      2 25/03/69         677534816
+  45628436 Manuel Medina Alvarez                                            Superiores       Activo           manuelmedinalv@gmail.com                 11 01/01/92         625826487
+  31087814 Luisa Cano Vega                                                  Ninguno          Activo           louisecave@yahoo.es                       3 05/06/81         645623736
+  45657294 Alvaro Diaz Gomez                                                Basicos          Estudiante       alvadigo@ono.es                           5 29/08/99         757427827
+
+       DNI NOMBRECOMPLETO                                                   ESTUDIOSSUPERIOR SITUACIONLABORAL EMAIL                             LOCALIDAD FECHANACIMIENTO   TELEFONO
+---------- ---------------------------------------------------------------- ---------------- ---------------- -------------------------------- ---------- --------------- ----------
+   8727847 Estrella Ortiz Mengual                                           Superiores       Jubilado         esomen@gmail.com                          4 23/01/53         611892544
+  75648104 Hector Mendoza Hernandez                                         Doctorado        Parado           he2men@yahoo.es                           1 14/10/86         654264027
+  80762946 Andres Carrasco Cruz                                             Basicos          Activo           andrescaracruz@yahoo.es                   7 11/09/92         699427546
+  30559073 Lucia Hoyos Martin                                               Basicos          Parado           hoyosmalu@hotmail.com                     9 31/03/98         721988562
+  30559074 Martin Hoyos Martin                                              Basicos          Activo           hoyosmama@hotmail.com                     9 01/03/96         721988563
+  30559075 Jose Hoyos Martin                                                Superiores       Activo           hoyosmaj@hotmail.com                      9 22/01/93         721988560
+  30653845 Maria Gonzalez Ramirez                                           Doctorado        Activo           goram@telefonica.es                       1 21/08/89         677544822
+
+ 18 filas seleccionadas 
+
+7-
+delete
+from votantes
+where DNI=30653845;
+
+1 fila eliminado
+
+8-
+INSERT INTO VOTANTES  (VOTANTES.DNI , VOTANTES.NOMBRECOMPLETO , VOTANTES.ESTUDIOSSUPERIORES , VOTANTES.SITUACIONLABORAL , VOTANTES.EMAIL ,VOTANTES.LOCALIDAD, VOTANTES.FECHANACIMIENTO , VOTANTES.TELEFONO)
+VALUES (30653845, 'Maria Gonzalez Ramirez', 'Doctorado', 'Activo', 'goram@telefonica.es', 1, '21/08/1989', 677544822);
+
+insert into PROVINCIAS(PROVINCIAS.IDPROVINCIA, PROVINCIAS.NOMBRE, PROVINCIAS.NUMEROHABITANTES, PROVINCIAS.COMUNIDAD)
+VALUES (7, 'Badajoz', 149946, 'Extremadura');
+
+insert into PARTIDOS (PARTIDOS.IDPARTIDO, PARTIDOS.NOMBRECOMPLETO, PARTIDOS.SIGLAS, PARTIDOS.DIRECCION, PARTIDOS.CIUDAD, PARTIDOS.PRESIDENTE, PARTIDOS.FECHACREACION, PARTIDOS.PRESUPUESTO)
+VALUES (6, 'Partido Animalista Contra el Maltrato Animal', 'PACMA', 'c/ Preciados 11', 'Madrid', 'Silvia Barquero Nogales', '24/02/2003', 26578);
+
+insert into LOCALIDADES (LOCALIDADES.IDLOCALIDAD, LOCALIDADES.NOMBRE, LOCALIDADES.NUMEROHABITANTES, LOCALIDADES.PROVINCIA)
+VALUES (17, 'Santa Eufemia', 822, 1);
+
+INSERT INTO EVENTOS_RESULTADOS(EVENTOS_RESULTADOS.IDRESULTADO, EVENTOS_RESULTADOS.EVENTO, EVENTOS_RESULTADOS.PARTIDO, EVENTOS_RESULTADOS.RESULTADO)
+VALUES (46, 1, 6, 0.01);
+
+INSERT INTO EVENTOS(EVENTOS.IDEVENTO, EVENTOS.NOMBRE, EVENTOS.FECHA, EVENTOS.TIPO, EVENTOS.DETALLE)
+VALUES (12, 'Espa�a16', '26/06/2016', 'Generales', 'Elecciones Generales');
+
+INSERT INTO CONSULTAS_DATOS(CONSULTAS_DATOS.IDRECOGIDA, CONSULTAS_DATOS.CONSULTA, CONSULTAS_DATOS.PARTIDO, CONSULTAS_DATOS.RESPUESTA, CONSULTAS_DATOS.CERTIDUMBRE)
+VALUES (62, 30, 6, 'Si', 0.6);
+
+INSERT INTO CONSULTAS(CONSULTAS.IDCONSULTA, CONSULTAS.EVENTO, CONSULTAS.VOTANTE, CONSULTAS.FECHA)
+VALUES (55, 2, 30653845, '21/01/15');
+
+9-
+SELECT EVENTOS.NOMBRE, EVENTOS.TIPO, EVENTOS.FECHA
+FROM EVENTOS;
+
+NOMBRE                           TIPO             FECHA  
+-------------------------------- ---------------- --------
+Europa2018                       Europeas         23/04/18
+Europa2015                       Europeas         20/03/15
+España17                        Generales        26/05/17
+España13                        Generales        30/05/13
+Andalucia                        Autonomicas      23/09/18
+Madrid                           Autonomicas      23/09/18
+Cataluña                        Autonomicas      23/09/18
+Cordoba                          Locales          22/01/18
+Sevilla                          Locales          22/01/18
+Madrid                           Locales          22/01/18
+Estatuto                         Otras            10/01/18
+
+ 11 filas seleccionadas 
+
+10-
+SELECT nombre || ' de tipo ' || tipo "Convocatoria"
+FROM EVENTOS;
+
+Convocatoria                                            
+---------------------------------------------------------
+Europa2018 de tipo Europeas                              
+Europa2015 de tipo Europeas                              
+España17 de tipo Generales                              
+España13 de tipo Generales                              
+Andalucia de tipo Autonomicas                            
+Madrid de tipo Autonomicas                               
+Cataluña de tipo Autonomicas                            
+Cordoba de tipo Locales                                  
+Sevilla de tipo Locales                                  
+Madrid de tipo Locales                                   
+Estatuto de tipo Otras                                   
+
+ 11 filas seleccionadas 
+
+11-

@@ -1,0 +1,37 @@
+set include BOOL off .
+
+fmod BOOLEANOS is
+    sort BOOL .
+    op true : -> BOOL [ctor] .
+    op false : -> BOOL [ctor] .
+
+    vars X Y : BOOL .
+
+    op not _ : BOOL -> BOOL [prec 1] .
+    eq not true = false .
+    eq not false = true .
+
+    op _ and _ : BOOL BOOL -> BOOL [comm assoc prec 2] .
+    eq true and X = X .
+    eq false and X = false .
+
+    op _ or _ : BOOL BOOL -> BOOL [comm assoc prec 3] .
+    eq true or X = true .
+    eq false or X = X .
+
+    op _ xor _ : BOOL BOOL -> BOOL [comm assoc prec 4] .
+    eq X xor X = false .
+    eq X xor Y = true .
+
+    op _ nand _ : BOOL BOOL -> BOOL [comm assoc prec 5] .
+    eq X nand Y = not (X and Y) .
+
+    op _ nor _ : BOOL BOOL -> BOOL [comm assoc prec 6] .
+    eq X nor Y = not (X or Y) .
+
+    *** Si A entonces B, si no C .
+    op if _ then _ else _ : BOOL BOOL BOOL -> BOOL [prec 7] .
+    eq if true then X else Y = X .
+    eq if false then X else Y = Y .
+
+endfm

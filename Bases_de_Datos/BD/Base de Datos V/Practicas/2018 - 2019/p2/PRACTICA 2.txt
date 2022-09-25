@@ -1,0 +1,130 @@
+﻿PRACTICA 2
+
+1-
+SELECT nombrecompleto
+FROM VOTANTES
+WHERE NOMBRECOMPLETO LIKE '%n';
+
+NOMBRECOMPLETO                                                 
+----------------------------------------------------------------
+Pablo Morales Raigan                                            
+Lucia Hoyos Martin                                              
+Martin Hoyos Martin                                             
+Jose Hoyos Martin
+
+2-
+SELECT DNI
+FROM VOTANTES
+WHERE DNI 
+LIKE '%5%5%5%';
+
+       DNI
+----------
+  30559075
+
+3-
+SELECT NOMBRECOMPLETO 
+FROM VOTANTES
+WHERE FECHANACIMIENTO > '01/01/1990';
+
+NOMBRECOMPLETO                                                 
+----------------------------------------------------------------
+Pedro Jimenez Santos                                            
+Marta Sanchez Rodriguez                                         
+Ana María Expósito Escudero                                   
+Manuel Medina Alvarez                                           
+Alvaro Diaz Gomez                                               
+Andres Carrasco Cruz                                            
+Lucia Hoyos Martin                                              
+Martin Hoyos Martin                                             
+Jose Hoyos Martin                                               
+
+ 9 filas seleccionadas
+
+4-
+SELECT VOTANTES.NOMBRECOMPLETO, VOTANTES.LOCALIDAD
+FROM VOTANTES, LOCALIDADES
+WHERE VOTANTES.LOCALIDAD=LOCALIDADES.IDLOCALIDAD
+AND LOCALIDADES.NUMEROHABITANTES > 300000;
+
+NOMBRECOMPLETO                                                    LOCALIDAD
+---------------------------------------------------------------- ----------
+Hector Mendoza Hernandez                                                  1
+Alberto Nuñez Fernandez                                                	  1
+Marta Sanchez Rodriguez                                                   1
+Martin Hoyos Martin                                                       9
+Lucia Hoyos Martin                                                        9
+Jose Hoyos Martin                                                         9
+
+ 6 filas seleccionadas
+
+5-
+SELECT VOTANTES.NOMBRECOMPLETO, PROVINCIAS.COMUNIDAD
+FROM VOTANTES, LOCALIDADES, PROVINCIAS
+WHERE VOTANTES.LOCALIDAD=LOCALIDADES.IDLOCALIDAD
+AND LOCALIDADES.PROVINCIA=PROVINCIAS.IDPROVINCIA
+AND LOCALIDADES.NUMEROHABITANTES > 300000;
+
+NOMBRECOMPLETO                                                   COMUNIDAD                                                      
+---------------------------------------------------------------- ----------------------------------------------------------------
+Marta Sanchez Rodriguez                                          Andalucia                                                       
+Alberto NuÃ±ez Fernandez                                         Andalucia                                                       
+Hector Mendoza Hernandez                                         Andalucia                                                       
+Lucia Hoyos Martin                                               Madrid                                                          
+Martin Hoyos Martin                                              Madrid                                                          
+Jose Hoyos Martin                                                Madrid                                                                                                                
+
+ 6 filas seleccionadas
+
+6-
+SELECT PARTIDO, COUNT(CONSULTA)
+FROM CONSULTAS_DATOS
+GROUP BY PARTIDO;
+
+   PARTIDO                         COUNT(CONSULTA)
+---------- ---------------------------------------
+         1                                      17
+         2                                      18
+         4                                       8
+         5                                       9
+         3                                       9
+
+8-
+SELECT PARTIDOS.NOMBRECOMPLETO
+FROM CONSULTAS_DATOS, PARTIDOS
+WHERE PARTIDOS.IDPARTIDO=CONSULTAS_DATOS.PARTIDO
+HAVING COUNT(CONSULTA) > 10
+GROUP BY PARTIDOS.NOMBRECOMPLETO;
+
+NOMBRECOMPLETO                                                 
+----------------------------------------------------------------
+Partido Socialista Obrero Español                              
+Partido Popular
+
+9-
+SELECT PARTIDOS.NOMBRECOMPLETO, COUNT(CONSULTA)
+FROM CONSULTAS_DATOS, PARTIDOS
+WHERE PARTIDOS.IDPARTIDO=CONSULTAS_DATOS.PARTIDO
+HAVING COUNT(CONSULTA) > 10
+GROUP BY PARTIDOS.NOMBRECOMPLETO;
+
+NOMBRECOMPLETO                                                                           COUNT(CONSULTA)
+---------------------------------------------------------------- ---------------------------------------
+Partido Socialista Obrero EspaÃ±ol                                                                    18
+Partido Popular                                                                                       17
+
+10-
+SELECT PARTIDOS.NOMBRECOMPLETO, COUNT(CONSULTA)
+FROM CONSULTAS_DATOS, PARTIDOS
+WHERE PARTIDOS.IDPARTIDO=CONSULTAS_DATOS.PARTIDO
+AND RESPUESTA LIKE 'S%'
+AND CERTIDUMBRE > 0.8
+GROUP BY PARTIDOS.NOMBRECOMPLETO;
+
+NOMBRECOMPLETO                                                                           COUNT(CONSULTA)
+---------------------------------------------------------------- ---------------------------------------
+Podemos                                                                                                3
+Partido Socialista Obrero Español                                                                      9
+Izquierda Unida                                                                                        5
+Partido Popular                                                                                        5
+Ciudadanos                                                                                             1										

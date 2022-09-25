@@ -1,0 +1,65 @@
+load NATURALES.maude
+
+fmod NATURALES_OP is
+
+    including NATURALES .
+    protecting INDEFINIDOS .
+    
+
+    vars x y z : Nat .
+
+    op minusFive : Nat -> Nat .
+    eq minusFive(x) = x - s(s(s(s(s(0))))) .  
+
+    op nPar : Nat -> Nat .
+    eq nPar(NaN) = NaN .
+    eq nPar(0) = NaN .
+    eq nPar(s(0)) = s(s(0)) .
+    eq nPar(s(x)) = nPar(x) + s(s(0)) .
+
+    op nImpar : Nat -> Nat .
+    eq nImpar(NaN) = NaN .
+    eq nImpar(0) = NaN .
+    eq nImpar(s(0)) = s(0) .
+    eq nImpar(s(x)) = nImpar(x) + s(s(0)) .
+
+    op fib : Nat -> Nat .
+    eq fib(NaN) = NaN .
+    eq fib(0) = NaN .
+    eq fib(s(0)) = 0 .
+    eq fib(s(s(0))) = s(0) .
+    eq fib(s(s(x))) = fib(s(x)) + fib(x) .
+
+    op nTriangular : Nat -> Nat .
+    eq nTriangular(NaN) = NaN .
+    eq nTriangular(0) = NaN .
+    eq nTriangular(s(0)) = s(0) .
+    eq nTriangular(s(s(0))) = s(s(s(0))) .
+    eq nTriangular(s(x)) = nTriangular(x) + s(x) .
+
+    op esImpar : Nat -> Nat .
+    eq esImpar(NaN) = NaN .
+    eq esImpar(0) = NaN .
+    eq esImpar(s(0)) = s(0) .
+    eq esImpar(s(s(0))) = 0 .
+    eq esImpar(s(s(x))) = esImpar(x) .
+
+    op sumaNPares : Nat -> Nat .
+    eq sumaNPares(NaN) = NaN .
+    eq sumaNPares(0) = NaN .
+    eq sumaNPares(s(0)) = s(s(0)) .
+    eq sumaNPares(s(x)) = sumaNPares(x) + nPar(s(x)) .
+
+    op nCub : Nat -> Nat .
+    eq nCub(NaN) = NaN .
+    eq nCub(0) = NaN .
+    eq nCub(s(0)) = s(0) .
+    eq nCub(x) = x ^ s(s(s(0))) .
+
+    op sumaNCub : Nat -> Nat .
+    eq sumaNCub(NaN) = NaN .
+    eq sumaNCub(0) = NaN .
+    eq sumaNCub(s(0)) = s(0) .
+    eq sumaNCub(s(x)) = nCub(s(x)) + sumaNCub(x) .
+
+endfm

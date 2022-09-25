@@ -1,0 +1,13 @@
+Run the program:
+
+-Create the "build" directory.
+
+-Open a console terminal in the "build" directory.
+
+-Type: cmake ..
+
+-Type: make
+
+type ./calibration -w=6 -h=4 -pt=chessboard -ocamera=.yml -op -oe -V ../video_camera.mp4
+
+-Run the program: ./augReal 5 7 1 ../out_camera_data.yml ../video_camera.mp4

@@ -1,0 +1,61 @@
+1-
+
+create table votantes_antiguos
+	(dni number(8) primary key,
+	nombreCompleto varchar2(64),
+	estudiosSuperiores varchar2(16) not null,
+	situacionLaboral varchar2(16) not null,
+	email varchar2(32) not null,
+	localidad number(3) not null,
+	fechaNacimiento date not null,
+	telefono number(14),
+  sueldo number(4),
+	constraint ck_estudios2 CHECK (estudiosSuperiores in ('Ninguno','Basicos','Superiores','Doctorado')),
+	constraint ck_laboral2 CHECK (situacionLaboral in ('Estudiante','Jubilado','Parado','Activo')));
+
+
+---
+SET SERVEROUTPUT ON;
+
+DECLARE
+CURSOR C IS SELECT * FROM VOTANTES 
+WHERE FECHANACIMIENTO < ('01/01/80');
+
+VOTANTESDATA VOTANTES%ROWTYPE;
+CONT NUMBER:=0;
+
+BEGIN 
+OPEN C;
+LOOP
+FETCH C INTO VOTANTESDATA;
+EXIT WHEN C%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE(VOTANTESDATA.NOMBRECOMPLETO);
+CONT:=CONT+1;
+END LOOP;
+DBMS_OUTPUT.PUT_LINE('El numero total de votantes es: ' ||CONT);
+END;
+
+---
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+CURSOR C IS SELECT * FROM VOTANTES 
+WHERE FECHANACIMIENTO < ('01/01/80');
+
+VOTANTESDATA VOTANTES%ROWTYPE;
+CONT NUMBER:=0;
+SUELDO NUMBER:=1500;
+
+BEGIN 
+OPEN C;
+LOOP
+FETCH C INTO VOTANTESDATA;
+EXIT WHEN C%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE(VOTANTESDATA.NOMBRECOMPLETO);
+CONT:=CONT+1;
+INSERT INTO VOTANTES_ANTIGUOS
+VALUES (VOTANTESDATA.DNI, VOTANTESDATA.
+END LOOP;
+DBMS_OUTPUT.PUT_LINE('El numero total de votantes es: ' ||CONT);
+END;

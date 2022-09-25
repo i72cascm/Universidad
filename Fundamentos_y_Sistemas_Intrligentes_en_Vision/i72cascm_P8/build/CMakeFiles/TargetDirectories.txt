@@ -1,0 +1,5 @@
+/home/manuelcasas/uni/fsiv/i72cascm_P8/build/CMakeFiles/rebuild_cache.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P8/build/CMakeFiles/edit_cache.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P8/build/CMakeFiles/repaso.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P8/build/CMakeFiles/augReal.dir
+/home/manuelcasas/uni/fsiv/i72cascm_P8/build/CMakeFiles/calibration.dir

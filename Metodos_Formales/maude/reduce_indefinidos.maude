@@ -1,0 +1,8 @@
+load INDEFINIDOS.maude
+load NATURALES.maude
+load NATURALES_OP.maude
+
+reduce in NATURALES : NaN + s(s(0)) .
+reduce in NATURALES : s(0) - NaN .
+reduce in NATURALES : NaN dif s(s(0)) .
+reduce in NATURALES_OP : fib(NaN) .

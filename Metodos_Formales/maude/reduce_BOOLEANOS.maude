@@ -1,0 +1,95 @@
+*** BOOLEANOS
+load BOOLEANOS.maude
+
+reduce in BOOLEANOS : not false .
+reduce in BOOLEANOS : not true .
+reduce in BOOLEANOS : false and true and false .
+reduce in BOOLEANOS : true and true and true .
+reduce in BOOLEANOS : not true or false .
+reduce in BOOLEANOS : not true or not false .
+reduce in BOOLEANOS : true xor true .
+reduce in BOOLEANOS : false xor false .
+reduce in BOOLEANOS : true xor false .
+reduce in BOOLEANOS : true nor false .
+reduce in BOOLEANOS : true nand true .
+reduce in BOOLEANOS : false nand false .
+reduce in BOOLEANOS : false nand true .
+reduce in BOOLEANOS : if not false then true else false .
+reduce in BOOLEANOS : if not true then false else true .
+reduce in BOOLEANOS : if not true then false else false .
+
+*** BOOLEANOS y NATURALES
+load BOOLEANOS_NAT.maude
+
+reduce in BOOLEANOS_NAT : not s(s(0)) .
+reduce in BOOLEANOS_NAT : not 0 .
+reduce in BOOLEANOS_NAT : s(0) and 0 and s(s(0)) .
+reduce in BOOLEANOS_NAT : 0 and 0 and 0 .
+reduce in BOOLEANOS_NAT : 0 or true .
+reduce in BOOLEANOS_NAT : true or 0 .
+reduce in BOOLEANOS_NAT : s(0) or true .
+reduce in BOOLEANOS_NAT : false xor s(s(0)) .
+reduce in BOOLEANOS_NAT : true xor s(s(0)) .
+reduce in BOOLEANOS_NAT : false xor 0 .
+reduce in BOOLEANOS_NAT : s(0) nand s(s(0)) .
+reduce in BOOLEANOS_NAT : 0 nand s(s(0)) .
+reduce in BOOLEANOS_NAT : 0 nand 0 .
+reduce in BOOLEANOS_NAT : s(s(s(0))) nor s(0) .
+reduce in BOOLEANOS_NAT : 0 nor 0 .
+
+*** Comparativa entre NATURALES
+load BOOLEANOS_COMP.maude
+
+reduce in BOOLEANOS_COMP : s(0) == s(s(s(0))) .
+reduce in BOOLEANOS_COMP : 0 == 0 .
+reduce in BOOLEANOS_COMP : s(0) == s(0) .
+reduce in BOOLEANOS_COMP : s(0) != s(s(s(0))) .
+reduce in BOOLEANOS_COMP : 0 != 0 .
+reduce in BOOLEANOS_COMP : 0 != s(s(s(0))) .
+reduce in BOOLEANOS_COMP : s(s(0)) < s(s(0)) .
+reduce in BOOLEANOS_COMP : s(s(0)) < 0 .
+reduce in BOOLEANOS_COMP : 0 < s(s(0)) .
+reduce in BOOLEANOS_COMP : s(s(0)) <= s(s(0)) .
+reduce in BOOLEANOS_COMP : s(s(0)) <= 0 .
+reduce in BOOLEANOS_COMP : 0 <= s(s(0)) .
+reduce in BOOLEANOS_COMP : s(s(0)) > s(s(0)) .
+reduce in BOOLEANOS_COMP : s(s(0)) > 0 .
+reduce in BOOLEANOS_COMP : 0 > s(0) .
+reduce in BOOLEANOS_COMP : s(s(0)) >= s(0) .
+reduce in BOOLEANOS_COMP : 0 >= s(0) .
+reduce in BOOLEANOS_COMP : s(s(0)) >= s(s(0)) .
+reduce in BOOLEANOS_COMP : max(s(s(0)), s(s(s(s(0))))) .
+reduce in BOOLEANOS_COMP : max(s(s(s(s(s(0))))), s(s(s(s(0))))) .
+reduce in BOOLEANOS_COMP : max(0, 0) .
+reduce in BOOLEANOS_COMP : min(s(s(0)), s(s(s(s(0))))) .
+reduce in BOOLEANOS_COMP : min(s(s(s(s(s(0))))), s(s(s(s(0))))) .
+reduce in BOOLEANOS_COMP : min(0, 0) .
+reduce in BOOLEANOS_COMP : max3(s(s(0)), 0, s(s(s(s(0))))) .
+reduce in BOOLEANOS_COMP : max3(s(0), s(s(s(0))), s(0)) .
+reduce in BOOLEANOS_COMP : max3(s(s(0)), 0, s(0)) .
+reduce in BOOLEANOS_COMP : min3(s(s(0)), 0, s(s(s(s(0))))) .
+reduce in BOOLEANOS_COMP : min3(s(0), s(s(s(0))), s(0)) .
+reduce in BOOLEANOS_COMP : min3(s(s(0)), 0, s(0)) .
+
+*** Operaciones en BOOLEANOS
+load BOOLEANOS_OP.maude
+
+reduce in BOOLEANOS_OP : esPar s(s(s(s(0)))) .
+reduce in BOOLEANOS_OP : esPar s(s(s(0))) .
+reduce in BOOLEANOS_OP : esPar s(0) .
+reduce in BOOLEANOS_OP : esimpar s(s(s(s(0)))) .
+reduce in BOOLEANOS_OP : esimpar s(s(s(0))) .
+reduce in BOOLEANOS_OP : esimpar s(0) .
+reduce in BOOLEANOS_OP : esDivisible(s(s(s(s(s(0))))), s(s(0))) .
+reduce in BOOLEANOS_OP : esDivisible(s(0), s(s(0))) .
+reduce in BOOLEANOS_OP : esDivisible(s(s(s(s(s(0))))), 0) .
+reduce in BOOLEANOS_OP : esDivisible(0, s(s(0))) .
+reduce in BOOLEANOS_OP : esDivisibleExacto(s(s(s(s(s(0))))), s(s(0))) .
+reduce in BOOLEANOS_OP : esDivisibleExacto(s(s(s(s(s(s(0)))))), s(s(0))) .
+reduce in BOOLEANOS_OP : esFib(0) .
+reduce in BOOLEANOS_OP : esFib(s(0)) .
+reduce in BOOLEANOS_OP : esFib(s(s(0))) .
+reduce in BOOLEANOS_OP : esFib(s(s(s(0)))) .
+reduce in BOOLEANOS_OP : esFib(s(s(s(s(0))))) .
+reduce in BOOLEANOS_OP : esFib(s(s(s(s(s(0)))))) .
+reduce in BOOLEANOS_OP : esFib(s(s(s(s(s(s(0))))))) .

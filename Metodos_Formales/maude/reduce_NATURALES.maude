@@ -1,0 +1,67 @@
+***NATURALES
+load NATURALES.maude
+
+
+reduce in NATURALES : s(0) + s(s(0)) .
+reduce in NATURALES : s(s(s(0))) + s(s(0)) .
+reduce in NATURALES : s(0) + 0 .
+reduce in NATURALES : 0 + s(s(0)) .
+reduce in NATURALES : 0 + 0 .
+reduce in NATURALES : s(0) - s(s(0)) .
+reduce in NATURALES : s(s(s(s(0)))) - s(0) .
+reduce in NATURALES : s(s(0)) - 0 .
+reduce in NATURALES : 0 - s(s(0)) .
+reduce in NATURALES : s(0) dif s(s(0)) .
+reduce in NATURALES : s(s(0)) dif s(s(0)) .
+reduce in NATURALES : s(0) dif s(s(s(0))) .
+reduce in NATURALES : 0 dif 0 .
+reduce in NATURALES : s(s(s(0))) * s(s(0)) .
+reduce in NATURALES : s(s(s(0))) * s(s(s(0))) .
+reduce in NATURALES : s(s(s(0))) * 0 .
+reduce in NATURALES : s(s(0)) * s(s(0)) .
+reduce in NATURALES : s(s(0)) ^ s(s(0)) .
+reduce in NATURALES : s(s(0)) ^ s(s(s(0))) .
+reduce in NATURALES : s(s(0)) ^ 0 .
+reduce in NATURALES : 0 ^ s(s(0)) .
+reduce in NATURALES : s(s(s(0)))! .
+reduce in NATURALES : 0 ! .
+reduce in NATURALES : s(0)! .
+reduce in NATURALES : s(s(s(s(0))))! .
+reduce in NATURALES : s(s(0)) / 0 .
+reduce in NATURALES : s(s(s(s(0)))) / s(s(0)) .
+reduce in NATURALES : s(s(s(s(s(0))))) / s(s(0)) .
+reduce in NATURALES : s(s(s(s(0)))) % s(s(0)) .
+reduce in NATURALES : s(s(s(s(s(0))))) % s(s(0)) .
+reduce in NATURALES : s(s(s(s(s(0))))) % s(s(s(0))) .
+
+
+
+***NATURALES_OP
+load NATURALES_OP.maude
+
+
+reduce in NATURALES_OP : minusFive(s(s(s(s(s(s(s(0)))))))) .
+reduce in NATURALES_OP : minusFive(s(0)) .
+reduce in NATURALES_OP : nPar(s(s(0))) .
+reduce in NATURALES_OP : nPar(s(s(s(0)))) .
+reduce in NATURALES_OP : nPar(0) .
+reduce in NATURALES_OP : nImpar(s(s(s(0)))) .
+reduce in NATURALES_OP : nImpar(s(s(0))) .
+reduce in NATURALES_OP : nImpar(0) .
+reduce in NATURALES_OP : fib(s(s(s(s(s(0)))))) .
+reduce in NATURALES_OP : fib(s(s(s(s(0))))) .
+reduce in NATURALES_OP : fib(0) .
+reduce in NATURALES_OP : nTriangular(s(s(0))) .
+reduce in NATURALES_OP : nTriangular(s(s(s(0)))) .
+reduce in NATURALES_OP : esImpar(s(s(0))) .
+reduce in NATURALES_OP : esImpar(s(s(s(0)))) .
+reduce in NATURALES_OP : sumaNPares(s(s(0))) .
+reduce in NATURALES_OP : sumaNPares(s(s(s(0)))) .
+reduce in NATURALES_OP : sumaNPares(s(s(s(s(0))))) .
+reduce in NATURALES_OP : nCub(s(s(0))) .
+reduce in NATURALES_OP : nCub(s(s(s(0)))) .
+reduce in NATURALES_OP : nCub(s(0) .
+reduce in NATURALES_OP : sumaNCub(s(s(s(0)))) .
+reduce in NATURALES_OP : sumaNCub(s(s(0))) .
+
+

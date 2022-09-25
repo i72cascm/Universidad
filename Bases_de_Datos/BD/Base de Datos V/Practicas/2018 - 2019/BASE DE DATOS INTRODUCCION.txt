@@ -1,0 +1,69 @@
+create table prueba
+(edad number(2,0),
+nombre varchar2(40)
+);
+
+INSERT INTO prueba
+VALUES(23, 'Jose Perez Perez');
+
+SELECT*
+FROM prueba
+WHERE edad=23;
+
+UPDATE prueba						--Actualiza el elemento del fichero. En este caso, donde la edad es 23, se actualizara a 25
+SET edad=25
+WHERE edad=23;
+
+DELETE               					 --Borra el elemento de la tabla prueba
+FROM prueba
+WHERE edad=23;
+
+DROP table prueba;    					--Borra la tabla prueba del menu de la derecha
+
+COMMIT 							--Vuelve a recuperar lo que se ha borrado
+autoCOMMIT ON						--Activar auto commit
+
+ROLLBACK						--Deshacer
+
+CONSTRAINT						--Restricciones
+
+SENTENCIAS:
+-Creacion:
+-Manipulacion:	INSERT INTO
+-Recuperacion:	SELECT*
+-Control:
+
+CREACION DE ALIAS/AKAS
+idpartido "numero partido" , 				--Nombre del elemento de la tabla y al lado entre comillas el nombre que quiero que se vea
+
+SELECT LOCALIDADES.NOMBRE, LOCALIDADES.NUMERODEHABITANTES, PROVINCIAS.NOMBRE, PROVINCIAS.NUMERODEHABITANTES
+from LOCALIDADES, PROVINCIAS;
+
+
+
+
+
+
+
+
+MIRAR PDF DE LAS DIAPOSITIVAS PARA LOS COMANDOS CON LAS LLAVES Y LOS PARENTESIS
+
+
+
+EL EXAMEN ESTA ENFOCADO A LA P3
+P4Y5 1 PREGUNATA CADA 1
+
+PRACTICA 2 ----------MIRAR DIAPOSITIVAS DE LA PRACTICA 2
+IMPORTANTE: 
+- DEBEMOS TENER EN CUENTA QUE PRIMERO SE EJECUTA EL FROM, Y POSTERIORMENTE EL SELECT
+- SE ELIGE ENTRE USAR EL * PARA SELECCIONAR TODO, O SEPARAR LOS ATRIBUTOS POR COMAS
+- DESCRIBE (tabla) NOS MUESTRA ATRIBUTOS Y CARACTERISTICAS DE LA TABLA
+
+CUANDO HACEMOS UNA CONSUTA, EXISTEN DIVERSOS CAMPOS A PONER:
+- OBLIGATORIOS: SELECT (atributos) Y FROM (tabla/s)
+- OPCIONALES: WHERE, HAVING, GROUP BY
+
+MULTIPLES TABLAS:
+- SI TENEMOS DOS TABLAS, EL MEDIO DE CONEXION ENTRE AMBAS SON LAS CLAVES PRIMARIAS Y LAS CAVES FOREIGNER
+- USAR SIEMPRE EL WHERE PARA HACER CONSULTAS ENTRE 2 O MAS TABLAS
+
