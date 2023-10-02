@@ -1,0 +1,43 @@
+
+!! Verificar si un numero es primo o no
+
+<<
+    Este algoritmo comprueba si un numero introducido por teclado es primo
+    o no, para ello pide el número y a continuación determina si tiene un
+    divisor además del 1 y de él mismo
+>>
+
+
+inicio
+
+    !! Se pide el numero a analizar
+
+    ESCRIBIR( 'Introduce un numero para ver si es primo o no: ' );
+
+    LEER( numero );
+
+    SI( numero < 0 ) entonces
+        ESCRIBIR( 'El número no puede ser negativo' || '\n' );
+    FIN_SI
+
+    esPrimo := 1; 
+    posibleDivisor := 2; 
+
+    !! Se buscan los divisores del numero
+
+    MIENTRAS( esPrimo <> 0 #y posibleDivisor <> numero ) HACER
+        SI( numero #mod posibleDivisor == 0 ) ENTONCES
+            esPrimo := 0;
+        FIN_SI
+
+        posibleDivisor := posibleDivisor + 1;
+    FIN_MIENTRAS
+
+    !! Se muestran los resultados
+
+    SI( esPrimo == 1 ) ENTONCES
+        ESCRIBIR( 'El numero ' || numero || 'no es primo' || '\n' );
+    SI_NO
+        ESCRIBIR( 'El numero ' || numero || 'es primo' || '\n' );
+
+fin

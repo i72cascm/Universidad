@@ -1,0 +1,52 @@
+09/03/2023
+
+size: nº de nodos
+altura: desde el nodo hasta arriba
+profundidad: desde el nodo hasta abajo
+
+funciones de BTree left() y right() cayeron en el examen
+funciones de BTree create() y fold() pueden entrar
+
+flujo:
+[] (vacio)
+[ item left right ]
+		
+altura:
+si arbol nullptr: -1
+si arbol 1 nodo: 0
+si arbol 2 nodo: 1
+... (tener en cuenta de que altura es el maximo de una rama, no el nº de nodos)
+
+----------------------------------
+Prefix = profundidad
+[]
+
+... (Aqui van las imagenes del grupo de la academia de esta fecha)
+----------------------------------
+
+----------------------------------------------------------------------
+16/03/2023
+
+De estas funciones (btree_utils_imp) pueden entrar todas las funciones, pero aprendiendote 4 realmente ya llevas 12 aprendidas.
+
+La funcion lambda solo se define en tiempo de ejecucción.
+En vez de auto si se pone bool sirve, pero auto es mas comodo.
+A la derecha del igual va [zona de captura](argumentos).
+
+auto p = [&out](T data)      T data porque es de tipo plantilla tree->item().
+
+A tener en cuenta que en search_prefix la funcion lambda ya no es la misma pq ahora necesitamos otra funcionalidad.
+
+return data!=it; es asi porque si el nodo no es el mismo devuelve verdadero y por tanto sigue buscando.
+
+El recorrido en profundidad mete la raiz, si la cola no esta vacia, se "tacha" el nodo actual y se mete sus hijos, asi hasta que todo este tachado.
+go_on es para parar en caso de que sea necesario antes de que la cola este vacia.
+
+A estudiar si angel fuera el examen:
+    Lo pepino:
+        btree_imp: create (136 de  su codigo), fold, left y right.
+        btree_util_imp: todas
+    Intermedio:
+        btree_imp_util: todas
+    Lo perro:
+        btree_imp_util: Las 3 ultimas

@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/backtracking.cpp.o CMakeFiles/main.dir/vegas.cpp.o CMakeFiles/main.dir/funcionesGlobales.cpp.o  -o main 

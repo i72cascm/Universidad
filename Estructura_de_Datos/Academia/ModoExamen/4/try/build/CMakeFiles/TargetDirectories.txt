@@ -1,0 +1,5 @@
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/4/try/build/CMakeFiles/rebuild_cache.dir
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/4/try/build/CMakeFiles/edit_cache.dir
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/4/try/build/CMakeFiles/test_alphabet_soup_solver.dir
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/4/try/build/CMakeFiles/test_trie.dir
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/4/try/build/CMakeFiles/test_trie_node.dir

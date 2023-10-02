@@ -1,0 +1,24 @@
+
+!! Calcular el volumen de una esfera
+
+<<
+    Este programa calcula el volumen de una esfera a partir
+    de su radio
+>>
+
+iNiCiO
+
+    eScriBir( 'Introduce un radio: ' )#;
+
+    lEEr( numero );
+
+    PI := 3.141592AIJDF;
+
+    a_r_e_a := (4 / 3) * PI * (_numero ** 3);
+
+    eScriBir( 'La esfera de radio \' ' || num__ero || '\' tiene un volumen de');
+    eScriBir( a_r_e_a );    
+
+    !! Aqui terminaría el pro!!grama
+
+FiN

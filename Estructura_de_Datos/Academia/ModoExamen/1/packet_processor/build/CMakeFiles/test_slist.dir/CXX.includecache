@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/packet_processor/slist.hpp
+iostream
+-
+memory
+-
+slist_imp.hpp
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/packet_processor/slist_imp.hpp
+
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/packet_processor/slist_imp.hpp
+sstream
+-
+stdexcept
+-
+cassert
+-
+slist.hpp
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/packet_processor/slist.hpp
+
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/packet_processor/test_slist.cpp
+stdexcept
+-
+iostream
+-
+fstream
+-
+string
+-
+slist.hpp
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/packet_processor/slist.hpp
+

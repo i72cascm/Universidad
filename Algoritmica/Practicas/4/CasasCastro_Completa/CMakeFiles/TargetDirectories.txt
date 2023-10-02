@@ -1,0 +1,3 @@
+/home/manuelcasas/Universidad/Algoritmica/Practicas/4/CasasCastro_Completa/CMakeFiles/rebuild_cache.dir
+/home/manuelcasas/Universidad/Algoritmica/Practicas/4/CasasCastro_Completa/CMakeFiles/edit_cache.dir
+/home/manuelcasas/Universidad/Algoritmica/Practicas/4/CasasCastro_Completa/CMakeFiles/main.dir

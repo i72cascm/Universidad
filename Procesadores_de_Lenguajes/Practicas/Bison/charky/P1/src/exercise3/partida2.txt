@@ -1,0 +1,1 @@
+1.e4 d6 2.e5 f5 3.exf6 a.p. Cxf6 4.d4 g5 5.c3 Ah6 6.Ae3 0-0 7.Cd2 e5 8.Dg4 Cfd7 9.0-0-0 Cf6 10.Dg3 Ch5 11.Dxe5 c5 12.Dd5+ Rh8 13.dxc5 b6 14.cxb6 a6 15.Ac4 a5 16.Cgf3 a4 17.The1 a3 18.Ce4 axb2+ 19.Rc2 b1=D+ 20.Txb1 g4 21.Axh6 Ad7 22.Cg3 Ac6 23.Cf5 Ad7 24.C3h4 Ac6 25.Ag7+ Cxg7 26.Dxd6 Cd7 27.b7 Ad5 28.bxa8=T Cf6 29.Txd8 Cd7 30.Dxd7 Axc4 31.Txf8+ Ag8 32.Dxg7# 1-0

@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/4/try/trie.cpp
+cassert
+-
+sstream
+-
+trie.hpp
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/4/try/trie.hpp
+
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/4/try/trie.hpp
+iostream
+-
+memory
+-
+string
+-
+vector
+-
+trie_node.hpp
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/4/try/trie_node.hpp
+
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/4/try/trie_node.hpp
+iostream
+-
+memory
+-
+map
+-
+

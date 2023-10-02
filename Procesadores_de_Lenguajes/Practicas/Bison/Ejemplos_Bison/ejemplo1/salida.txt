@@ -1,0 +1,13 @@
+stmtlist -->  epsilon 
+exp --> NUMBER
+stmtlist --> stmtlist exp '\n' 
+[1;93mCorrect expression 
+
+[0mexp --> NUMBER
+exp --> NUMBER
+exp --> exp '+' exp
+stmtlist --> stmtlist exp '\n' 
+[1;93mCorrect expression 
+
+[0m[1;96m>>>>>>> End of program <<<<<<<
+[0mprogram --> stmtlist

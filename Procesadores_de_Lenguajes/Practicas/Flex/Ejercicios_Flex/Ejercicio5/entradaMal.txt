@@ -1,0 +1,33 @@
+<<
+	Descripcion:
+		El programa pide al usuario una serie de datos y dependiendo de la opción se realiza distintas operaciones
+	
+	
+!! Inicio del programa
+>>
+INICIoO
+	escribir( Elige operacion : ' );
+	escribir( '1. resta );
+	escir( '2. producto' );
+	escribir( '3. suma' )
+	ler( op );
+	leer( num1 );
+	leer( num2 );
+	
+	si ( op <= 0 #o op > 3) entonces
+		escribir( 'opcion no valida' 
+	sino	
+	
+		si (op == 1) entonces
+			res = num1 - num2;
+	sino
+	
+		si (op==2) entonces
+			res = num1 * num2;
+	si_
+		!!opcion 3
+		res = num1  num 2;
+	fin_si
+	
+	escribir('resultado: ' res);
+	

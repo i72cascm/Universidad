@@ -1,0 +1,4 @@
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/2/try/build/CMakeFiles/rebuild_cache.dir
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/2/try/build/CMakeFiles/edit_cache.dir
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/2/try/build/CMakeFiles/test_btree.dir
+/home/manuelcasas/Universidad/Estructura_de_Datos/Academia/ModoExamen/2/try/build/CMakeFiles/test_btree_node.dir

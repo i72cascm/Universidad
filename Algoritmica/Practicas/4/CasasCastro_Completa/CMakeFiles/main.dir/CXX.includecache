@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/manuelcasas/Universidad/Algoritmica/Practicas/4/CasasCastro_Completa/ClaseTiempo.hpp
+cassert
+-
+ctime
+-
+cstdio
+-
+cstring
+-
+iostream
+-
+stdint.h
+-
+
+/home/manuelcasas/Universidad/Algoritmica/Practicas/4/CasasCastro_Completa/metodo_primero.cpp
+iostream
+-
+serietemporal.hpp
+/home/manuelcasas/Universidad/Algoritmica/Practicas/4/CasasCastro_Completa/serietemporal.hpp
+ClaseTiempo.hpp
+/home/manuelcasas/Universidad/Algoritmica/Practicas/4/CasasCastro_Completa/ClaseTiempo.hpp
+
+/home/manuelcasas/Universidad/Algoritmica/Practicas/4/CasasCastro_Completa/punto.hpp
+math.h
+-
+
+/home/manuelcasas/Universidad/Algoritmica/Practicas/4/CasasCastro_Completa/serietemporal.hpp
+vector
+-
+algorithm
+-
+punto.hpp
+/home/manuelcasas/Universidad/Algoritmica/Practicas/4/CasasCastro_Completa/punto.hpp
+

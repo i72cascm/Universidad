@@ -1,0 +1,26 @@
+a := b := PI;
+
+escribir(a);
+escribir_cadena('\n');
+escribir(b);
+escribir_cadena('\n');
+escribir(PI);
+escribir_cadena('\n');
+
+dato := 2;
+escribir(dato);
+escribir_cadena('\n');
+
+dato := verdadero;
+
+escribir(dato);
+escribir_cadena('\n');
+
+
+dato := 9;
+escribir(dato);
+escribir_cadena('\n');
+
+
+escribir(3>PI);
+escribir_cadena('\n');

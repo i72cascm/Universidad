@@ -1,0 +1,12 @@
+Apellidos: Casas Castro
+Nombre: Manuel
+DNI: 31875931R
+Correo: i72cascm@uco.es
+------------------------------------------------------------------------
+d) Realizando la planificación a partir de los datos del enunciado de la práctica, obtenemos que el proyecto comienza el 3 de mayo de 2010 y finaliza el 2 de agosto de 2010.
+e) En el calendario de asignación de recursos, podemos observar que el director no dispone del tiempo suficiente como para llevar a cabo las tareas de preparar antecedentes al incio del proyecto.
+Para solucionar esto, aplazamos la tarea "Seleccionar equipo de trabajo" hacia la derecha en la linea de tiempo hasta que los recursos del director esten cuadrados dentro de su respectivo histograma.
+El siguiente caso encontrado de sobreasignación de recursos es en el equipo de trabajo. Encontramos dos bloques de trabajo para el equipo de desarrollo, uno inciado por la tarea "Preparar solicitud de información sobre el equipo" y otro comenzado por "Preparar hojas de especificaciones de evaluación".
+Como estos bloques de trabajo pueden realizarse de manera independiente, aplazamos el segundo bloque hasta finalizar la tarea de "Divulgar solicitud de propuestas".
+De esta forma, ya se soluciona todo el problema de gestión de recursos y el proyecto pasa de tener una duración de 70 días a 83 días, acabando así el día 25 de agosto de 2010.
+f) Suponiendo que el jefe de proyecto gana 12 euros la hora por su cargo con responsabilidades, que el equipo se compone de 5 integrantes que ganan 10 euros la hora cada uno (50  euros/hora) y el sistema cuesta en total 500 euros por tema de uso, tenemos que el costo total de este proyecto será de 21412 euros. 
