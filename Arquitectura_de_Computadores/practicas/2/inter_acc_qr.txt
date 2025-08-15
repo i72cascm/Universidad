@@ -1,0 +1,9 @@
+A 4
+B 7
+@
+0
+@
+LDA A
+LDQ B
+INTER_ACC_QR
+HALT

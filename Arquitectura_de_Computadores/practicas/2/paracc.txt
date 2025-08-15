@@ -1,0 +1,7 @@
+A 11
+@
+0
+@
+LDA A
+PARACC B
+HALT

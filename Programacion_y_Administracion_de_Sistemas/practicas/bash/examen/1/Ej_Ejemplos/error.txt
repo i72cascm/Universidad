@@ -1,0 +1,4 @@
+ls: no se puede abrir el directorio '/root': Permiso denegado
+ls: no se puede abrir el directorio '/root': Permiso denegado
+ls: no se puede abrir el directorio '/root': Permiso denegado
+cp: no se puede efectuar `stat' sobre '/root/informacion.sh': Permiso denegado

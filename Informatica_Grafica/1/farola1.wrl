@@ -1,0 +1,61 @@
+#VRML V2.0 utf8
+
+Transform{
+    rotation 1 0 0 1.5708
+
+    
+    children [ 
+        Shape {
+            appearance Appearance {
+                material Material {}
+                texture ImageTexture{
+                    url "texturas/hierro1.jpg"
+                }
+            }
+            geometry Cylinder {
+                height 1.0
+                radius 0.06
+            }
+        }
+    ]
+}
+
+Transform{
+    rotation 1 0 0 1.5708
+    translation 0 0 0.5
+
+    children [
+        Shape {
+                appearance Appearance {
+                    material Material {
+                        diffuseColor 190 190 0
+                    }
+                }
+                geometry Sphere {
+                    radius 0.16
+                }
+        }
+    ]
+}
+
+Transform{
+    rotation 1 0 0 1.5708
+    translation 0 0 0.7
+
+    children [
+        Shape {
+                appearance Appearance {
+                    material Material {}
+                    texture ImageTexture{
+                        url "texturas/hierrooscuro1.jpg"
+                    }
+                }
+                geometry Cone {
+                    height 0.4
+                    bottomRadius 0.3
+                    side TRUE
+                    bottom TRUE
+                }
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+#COMENTARIO
+7 3
+8 1
+@
+0
+@
+CRA
+ADD 8
+CTA
+ITA
+ADD 7
+STA 9
+HALT
+@

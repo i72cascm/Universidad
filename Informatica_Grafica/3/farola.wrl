@@ -1,0 +1,101 @@
+#VRML V2.0 utf8
+
+Transform{
+    rotation 1 0 0 1.5708
+
+    
+    children [ 
+        Shape {
+            appearance Appearance {
+                material Material {}
+                texture ImageTexture{
+                    url "texturas/hierro1.jpg"
+                }
+            }
+            geometry Cylinder {
+                height 1.0
+                radius 0.06
+            }
+        }
+    ]
+}
+
+Transform{
+    rotation 1 0 0 1.5708
+    translation 0 0 0.5
+
+    children [
+        Shape {
+                appearance Appearance {
+                    material Material {
+                        diffuseColor 190 190 0
+                    }
+                }
+                geometry Sphere {
+                    radius 0.16
+                }
+        }
+    ]
+}
+
+Transform{
+    rotation 1 0 0 1.5708
+    translation 0 0 0.7
+
+    children [
+        Shape {
+                appearance Appearance {
+                    material Material {}
+                    texture ImageTexture{
+                        url "texturas/hierrooscuro1.jpg"
+                    }
+                }
+                geometry Cone {
+                    height 0.4
+                    bottomRadius 0.26
+                    side TRUE
+                    bottom TRUE
+                }
+        }
+    ]
+}
+
+Transform{
+    rotation 1 0 0 1.5708
+    translation -0.16 -0.16 -0.5
+    scale 1.3 1.3 1.3
+    children [
+        Shape { 
+            appearance Appearance {
+                material Material {}
+                texture ImageTexture{
+                    url "texturas/hierro_tornillo.jpg"
+                }
+            }
+            geometry IndexedFaceSet {
+                solid FALSE
+
+                coord Coordinate {
+                    point [
+                        0  0  0, #0
+                        0.25  0  0, #1
+                        0.25  0 -0.25, #2
+                        0  0 -0.25, #3
+                        0.09  0.1 -0.09, #4
+                        0.16  0.1 -0.09, #5
+                        0.16  0.1 -0.16, #6
+                        0.09  0.1 -0.16  #7
+                    ]
+                }
+                coordIndex [
+                    0, 3, 2, 1, -1, #A
+                    4, 5, 6, 7, -1, #B
+                    0, 4, 7, 3, -1, #C
+                    0, 1, 5, 4, -1, #D
+                    1, 2, 6, 5, -1, #E
+                    2, 3, 7, 6, -1 #F
+                ]
+            }
+        }
+    ]
+}

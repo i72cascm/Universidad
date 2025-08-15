@@ -1,0 +1,22 @@
+#ej3
+D 3
+E F
+F 10
+10 2
+11 3
+@
+0
+@
+CRA
+ADD D
+CTA
+ITA
+STA D
+CRA
+ADDI E
+ISZ E
+ISZ D
+JMP 6
+STA C
+HALT
+@

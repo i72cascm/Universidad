@@ -1,0 +1,8 @@
+A 5
+B A
+@
+0
+@
+LDQ A
+SUBQR B
+HALT

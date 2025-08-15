@@ -1,0 +1,97 @@
+T1
+--
+Actividad	X	X
+Practica	X	X
+Cuestionario	X	X
+
+
+T2
+--
+Actividad	X	X
+Practica	X	X
+Cuestionario	X	X
+
+
+T3
+--
+Actividad	X	X
+Cuestionario	X	X
+
+
+T4
+--
+Practica	X	X
+
+
+T5
+--
+Cuestionario		X
+
+
+T6
+--
+Actividad	X	X
+Actividad Extra
+Cuestionario		X
+
+
+T7
+--
+Actividad
+Practica
+
+
+T8
+--
+Practica (PDF para cuestionario) X
+Cuestionario	X	X
+
+
+T9
+--
+Practica	X	X
+
+
+T10
+---
+Actividad	X	X
+
+
+T11
+---
+Cuestionario		X
+
+
+T12
+---
+
+
+T13
+---
+Actividad	X	X
+Practica	X	X
+
+
+T14
+---
+Actividad	X	X
+Practica	X	X
+Cuestionario
+
+
+T15
+---
+Actividad	X	X	
+Practica
+Cuestionario		X
+
+
+T16
+---
+Activiad	X	X
+Cuestionario		X
+
+
+T17
+---
+Practica

@@ -1,0 +1,43 @@
+#VRML V2.0 utf8
+
+Transform{
+    rotation 1 0 0 1.5708
+
+    
+    children [ 
+        Shape {
+            appearance Appearance {
+                material Material {}
+                texture ImageTexture{
+                    url "texturas/madera1.png"
+                }
+            }
+            geometry Cylinder {
+                height 1.0
+                radius 0.1
+            }
+        }
+    ]
+}
+
+Transform{
+    rotation 1 0 0 1.5708
+    translation 0 0 0.5
+
+    children [
+        Shape {
+                appearance Appearance {
+                    material Material {}
+                    texture ImageTexture{
+                        url "texturas/hojas1.jpg"
+                    }
+                }
+                geometry Cone {
+                    height 1.8
+                    bottomRadius 0.4
+                    side TRUE
+                    bottom TRUE
+                }
+        }
+    ]
+}

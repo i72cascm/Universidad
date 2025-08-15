@@ -1,0 +1,8 @@
+A 2
+B 3
+@
+0
+@
+LDQ A
+MUL B
+HALT

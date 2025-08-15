@@ -1,0 +1,14 @@
+#VRML V2.0 utf8 
+
+Shape {
+	appearance Appearance {
+		material Material {
+			diffuseColor 0.5 1.0 0.43
+			transparency 0.2
+		}
+	}
+
+	geometry Sphere {
+	   radius 0.12
+	}
+}

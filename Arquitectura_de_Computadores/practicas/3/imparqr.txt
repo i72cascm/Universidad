@@ -1,0 +1,9 @@
+A AB
+B 7
+@
+0
+@
+LDA A
+LDQ B
+IMPARQR C
+HALT
